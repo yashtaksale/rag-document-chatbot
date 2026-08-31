@@ -17,7 +17,8 @@ SYSTEM_PROMPT = (
     "Answer ONLY using the provided CONTEXT. "
     f'If the answer is not in CONTEXT, respond with the exact phrase: "{REFUSAL}" '
     "Do not use outside knowledge. "
-    "Do not guess."
+    "Do not guess. "
+    "Give only the final answer. No thinking. No explanation unless asked."
 )
 
 
@@ -27,7 +28,7 @@ def generate_answer(question: str, chunks: list[str]) -> str:
 
     # Ask Groq to answer using only that context
     response = client.chat.completions.create(
-        model="llama3-8b-8192",
+        model="openai/gpt-oss-20b",
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {

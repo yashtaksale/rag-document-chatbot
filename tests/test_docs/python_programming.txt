@@ -1,0 +1,33 @@
+Python Programming Guide
+Variables and Types
+Python supports dynamic typing with built-in types: int, float, str, bool, list, dict, tuple, and set. Variables are assigned using the equals sign. The type() function returns the type of any object. Type hints use the colon syntax: name: str = "Alice".
+
+Functions
+Functions are defined using the def keyword followed by the function name and parameters in parentheses. Default parameter values are specified using the equals sign. The return statement sends a value back to the caller. Lambda functions are one-line anonymous functions. Decorators wrap functions with additional behavior.
+
+Classes
+Classes are defined using the class keyword. The __init__ method serves as the constructor. Instance methods accept self as the first parameter. Class methods use @classmethod and cls as the first parameter. Static methods use @staticmethod and accept no implicit first parameter. Inheritance is specified by including the parent class in parentheses.
+
+Error Handling
+Exceptions are caught using try and except blocks. The else block runs if no exception occurs. The finally block always runs regardless of exceptions. Custom exceptions are created by inheriting from the Exception class. Raise sends exceptions using the raise keyword.
+
+File Operations
+Open a file with the open() function and a mode string: r for read, w for write, a for append. The with statement ensures files are properly closed. Read contents using read(), readline(), or readlines(). Write using write() or writelines(). Binary mode uses rb, wb, and ab.
+
+List Comprehensions
+List comprehensions create lists using a single expression: [x**2 for x in range(10)]. Conditional filtering uses if: [x for x in items if x > 0]. Dictionary comprehensions use key: value syntax. Set comprehensions use curly braces without colons.
+
+Generators
+Generators use yield to produce values lazily. Generator expressions look like list comprehensions but use parentheses. They are memory-efficient for large datasets. Generators can be iterated only once. The next() function retrieves the next value.
+
+Modules and Packages
+Import modules using import or from module import function. The if __name__ == "__main__" block runs only when executed directly. Packages are directories containing __init__.py files. The sys.path list determines module search locations. Relative imports use dots for navigation.
+
+Decorators
+A decorator is a function that wraps another function. The @decorator syntax applies it to the function below. Wraps from functools preserves the original function's metadata. Class decorators can replace or modify class definitions. Decorators can accept arguments using nested functions.
+
+Async Programming
+Async functions use the async def keyword. Await pauses execution until a coroutine completes. Asyncio is the standard library for async programming. Async context managers use async with. Async generators use async for in for loops.
+
+Popular Libraries
+NumPy handles numerical computing with efficient arrays. Pandas provides DataFrame and Series for data manipulation. Matplotlib creates visualizations. Requests handles HTTP operations. FastAPI builds modern APIs. Pydantic validates data models. SQLAlchemy is an ORM for databases.

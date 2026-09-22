@@ -1,0 +1,118 @@
+# Test Questions for Phase 6 Evaluation
+# Categories: in_doc | not_in_doc | hallucination | edge_case
+
+# ============================================================
+# DOCUMENT: climate_change.txt
+# ============================================================
+[in_doc]
+What was the global CO2 emission figure in 2023?
+According to the document, how much has sea level risen since 1900?
+Which three countries are the largest CO2 emitters and what are their emissions?
+What is the current rate of sea level rise?
+Which cities face significant flooding risks?
+What solar panel efficiency was achieved in 2023?
+How much of Germany's electricity comes from renewable sources?
+How many climate refugees are projected by 2050?
+What does the Paris Agreement target for net-zero emissions year?
+By how much are current policies projected to increase temperature by 2100?
+
+[not_in_doc]
+What is the chemical formula for CFCs?
+How much does a carbon capture plant cost in India?
+When was the Kyoto Protocol signed?
+What is the ozone layer depletion rate?
+
+[edge_case]
+What is the answer to life the universe and everything?
+
+# ============================================================
+# DOCUMENT: space_missions.txt
+# ============================================================
+[in_doc]
+How many people have walked on the Moon?
+What happened during the Apollo 13 mission?
+When was the first black hole image captured?
+How many confirmed moons does Saturn have as of 2023?
+What is the mass of Sagittarius A in Suns?
+How many years did Opportunity rover operate on Mars?
+What was the name of Perseverance's companion helicopter?
+At what altitude does the ISS orbit Earth?
+Which five countries collaborated on ISS construction?
+How many Falcon 9 launches has SpaceX conducted as of 2023?
+
+[not_in_doc]
+What is the composition of dark matter in galaxies?
+How many galaxies are in the observable universe?
+What is the habitable zone distance for Proxima Centauri?
+When will the next total solar eclipse be visible in the UK?
+
+[edge_case]
+What is the color of the number seven?
+
+# ============================================================
+# DOCUMENT: python_programming.txt
+# ============================================================
+[in_doc]
+What Python keyword defines a function?
+How do you create a dictionary comprehension?
+What module provides async programming support?
+How do you specify a default parameter value?
+What keyword sends exceptions?
+What is the syntax for type hints?
+What decorator preserves function metadata?
+How do you read all lines from a file?
+What keyword defines an async function?
+How many built-in types does Python have according to the document?
+
+[not_in_doc]
+What is the GIL in Python?
+How does Python's garbage collector work?
+What is the difference between == and is?
+When was Python first released?
+
+[edge_case]
+What is 2+2?
+
+# ============================================================
+# DOCUMENT: mediterranean_diet.txt
+# ============================================================
+[in_doc]
+Which five countries border the Mediterranean Sea?
+What did UNESCO recognize in 2010?
+What is the primary fat source in the diet?
+How much does the Mediterranean diet reduce cardiovascular disease risk?
+Which cheese can be grilled without melting?
+What traditional Turkish beverage is thick and served in small cups?
+By what percentage has Germany reduced deforestation between 2019 and 2023?
+
+[not_in_doc]
+How many calories are in a standard serving of hummus?
+What is the average lifespan in Greece?
+How much olive oil does Italy import annually?
+What percentage of Mediterranean people are lactose intolerant?
+
+[edge_case]
+What does a dog say?
+
+# ============================================================
+# DOCUMENT: countries.csv
+# ============================================================
+[in_doc]
+Which country has the largest population in the dataset?
+What is the capital of Japan?
+What is Nigeria's GDP in billions USD?
+Which continent is Brazil located in?
+What is the combined population of France and Canada in millions?
+
+[not_in_doc]
+What is the population of Greenland?
+What is the average temperature of Australia?
+
+# ============================================================
+# Cross-document questions (require reasoning across docs)
+# ============================================================
+[in_doc]
+If Germany generates 46% of its electricity from renewables, and it is also mentioned as reducing deforestation, how many countries are named in the documents?
+
+[not_in_doc]
+What is the population of Mars?

@@ -2,7 +2,11 @@ venv/
 __pycache__/
 *.pyc
 .env
+.env.*
 chroma_db/
+conversations/
 *.bin
 *.safetensors
+docchat.log
 .DS_Store
+*.tmp

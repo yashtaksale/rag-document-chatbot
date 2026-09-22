@@ -94,39 +94,74 @@ def ingest_documents(file_paths, user_id=999):
 # ---------------------------------------------------------------------------
 # Query helper - calls agent pipeline directly
 # ---------------------------------------------------------------------------
-def query_system(collection, question, user_id=999):
-    """Run the full agentic RAG pipeline on a question."""
-    agent_mod = load_module("backend.agent", "backend/agent.py")
-    vs_mod = load_module("backend.vector_store", "backend/vector_store.py")
-    from backend.config import TOP_K
+def query_system(collection, question, user_id=999, max_retries=1):
+    """Run the full agentic RAG pipeline on a question. Returns (answer, sources, results, elapsed_ms).
 
-    start = time.perf_counter()
+    If the Groq API returns a 429 rate-limit error, waits for the reset window
+    and retries once.
+    """
+    _MAX_RETRIES = max_retries
+    _LAST_RETRY = [0]
 
-    # Prepare context using the agent pipeline
-    status, relevant_docs, results, raw_context = agent_mod.prepare_agentic_context(
-        collection, question, user_id
-    )
+    def _do_query():
+        agent_mod = load_module("backend.agent", "backend/agent.py")
+        vs_mod = load_module("backend.vector_store", "backend/vector_store.py")
+        from backend.config import TOP_K
 
-    elapsed_ms = (time.perf_counter() - start) * 1000
+        start = time.perf_counter()
 
-    if status == "direct":
-        # No context found — send with strict refusal
-        messages = [
-            {"role": "system", "content": "You are a strict document-grounded assistant. The user's question cannot be answered from any provided documents. Respond with exactly: 'I do not have sufficient information in the provided documents to answer this accurately.'"},
-            {"role": "user", "content": question},
-        ]
-        answer = "".join(agent_mod.stream_response(messages))
-    elif status == "refusal" or not raw_context.strip():
-        answer = "I do not have sufficient information in the provided documents to answer this accurately."
-    else:
-        messages = [
-            {"role": "system", "content": "You are a strict document-grounded assistant. Your ONLY source of information is the provided CONTEXT below. If the answer to the user's question is NOT present in the CONTEXT, respond with exactly: 'I do not have sufficient information in the provided documents to answer this accurately.' Do NOT use your training knowledge or any external information. Do NOT elaborate beyond what is in the CONTEXT."},
-            {"role": "user", "content": f"CONTEXT:\n{raw_context}\n\nQUESTION: {question}"},
-        ]
-        answer = "".join(agent_mod.stream_response(messages))
+        # Prepare context using the agent pipeline
+        status, relevant_docs, results, raw_context = agent_mod.prepare_agentic_context(
+            collection, question, user_id
+        )
 
-    sources = [doc[:200] for doc in relevant_docs[:3]]
-    return answer, sources, results, elapsed_ms
+        elapsed_ms = (time.perf_counter() - start) * 1000
+
+        if status == "direct":
+            # No context found — send with strict refusal
+            messages = [
+                {"role": "system", "content": "You are a strict document-grounded assistant. The user's question cannot be answered from any provided documents. Respond with exactly: 'I do not have sufficient information in the provided documents to answer this accurately.'"},
+                {"role": "user", "content": question},
+            ]
+            answer = "".join(agent_mod.stream_response(messages))
+        elif status == "refusal" or not raw_context.strip():
+            answer = "I do not have sufficient information in the provided documents to answer this accurately."
+        else:
+            messages = [
+                {"role": "system", "content": "You are a strict document-grounded assistant. Your ONLY source of information is the provided CONTEXT below. If the answer to the user's question is NOT present in the CONTEXT, respond with exactly: 'I do not have sufficient information in the provided documents to answer this accurately.' Do NOT use your training knowledge or any external information. Do NOT elaborate beyond what is in the CONTEXT."},
+                {"role": "user", "content": f"CONTEXT:\n{raw_context}\n\nQUESTION: {question}"},
+            ]
+            answer = "".join(agent_mod.stream_response(messages))
+
+        sources = [doc[:200] for doc in relevant_docs[:3]]
+        return answer, sources, results, elapsed_ms
+
+    # First attempt
+    try:
+        return _do_query()
+    except Exception as exc:
+        err_str = str(exc)
+        if "429" in err_str and _MAX_RETRIES > 0:
+            # Parse retry window — "Please try again in Xs"
+            import re
+            match = re.search(r"try again in (\d+)m(\d+\.?\d*)s", err_str)
+            if match:
+                mins, secs = int(match.group(1)), float(match.group(2))
+                wait_s = mins * 60 + secs + 5  # add 5s buffer
+            else:
+                wait_s = 120 + 5  # default wait 2 min
+
+            wait_s = min(wait_s, 185)  # cap at ~3 min
+            now = time.time()
+            if now - _LAST_RETRY[0] > wait_s - 10:
+                print(f"\n  [RATE LIMIT] Hit TPD limit. Waiting {wait_s:.0f}s for reset...")
+                time.sleep(wait_s)
+                _LAST_RETRY[0] = time.time()
+                try:
+                    return _do_query()
+                except Exception:
+                    raise
+        raise
 
 
 # ---------------------------------------------------------------------------

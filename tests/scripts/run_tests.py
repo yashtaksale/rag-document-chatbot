@@ -13,10 +13,16 @@ import importlib.util
 from datetime import datetime, timezone
 from pathlib import Path
 
+# Force UTF-8 stdout/stderr so emoji/non-ASCII output doesn't crash on cp1252
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 # ---------------------------------------------------------------------------
 # Setup paths so 'backend.*' imports work
 # ---------------------------------------------------------------------------
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path.cwd()
 sys.path.insert(0, str(BASE_DIR))
 
 RESULTS_DIR = BASE_DIR / "tests" / "results"
@@ -104,13 +110,17 @@ def query_system(collection, question, user_id=999):
     elapsed_ms = (time.perf_counter() - start) * 1000
 
     if status == "direct":
-        messages = [{"role": "user", "content": question}]
+        # No context found — send with strict refusal
+        messages = [
+            {"role": "system", "content": "You are a strict document-grounded assistant. The user's question cannot be answered from any provided documents. Respond with exactly: 'I do not have sufficient information in the provided documents to answer this accurately.'"},
+            {"role": "user", "content": question},
+        ]
         answer = "".join(agent_mod.stream_response(messages))
     elif status == "refusal" or not raw_context.strip():
         answer = "I do not have sufficient information in the provided documents to answer this accurately."
     else:
         messages = [
-            {"role": "system", "content": "Answer the question strictly using the provided context. Do not invent or extrapolate facts outside the context."},
+            {"role": "system", "content": "You are a strict document-grounded assistant. Your ONLY source of information is the provided CONTEXT below. If the answer to the user's question is NOT present in the CONTEXT, respond with exactly: 'I do not have sufficient information in the provided documents to answer this accurately.' Do NOT use your training knowledge or any external information. Do NOT elaborate beyond what is in the CONTEXT."},
             {"role": "user", "content": f"CONTEXT:\n{raw_context}\n\nQUESTION: {question}"},
         ]
         answer = "".join(agent_mod.stream_response(messages))

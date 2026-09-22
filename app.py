@@ -378,9 +378,13 @@ if active_prompt:
 
                     else:
                         sys_inst = (
-                            "Answer strictly using the provided context. Do not invent or extrapolate."
-                            if rag_mode == "Thinking"
-                            else "Answer using the context. Maintain a natural, helpful tone."
+                            "You are a document-grounded assistant. Answer STRICTLY and ONLY using "
+                            "the information present in the provided CONTEXT. If the context does not "
+                            "contain the information needed to answer the question, respond with "
+                            "'I do not have sufficient information in the provided documents to answer this accurately.' "
+                            "Never invent facts, numbers, or entities that are not in the CONTEXT. "
+                            "If the question is a greeting or general chat, you may respond briefly "
+                            "but you must not fabricate document content."
                         )
                         messages = [
                             {"role": "system", "content": sys_inst},

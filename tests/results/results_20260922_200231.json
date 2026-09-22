@@ -1,0 +1,908 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-22T20:02:31.161376+00:00",
+    "total_test_cases": 66,
+    "docs_tested": [
+      "climate_change.txt",
+      "countries.csv",
+      "mediterranean_diet.txt",
+      "python_programming.txt",
+      "space_missions.txt",
+      "test_questions.txt"
+    ],
+    "total_chunks": 54
+  },
+  "stats": {
+    "accuracy": {
+      "in_doc_correct": 40,
+      "in_doc_total": 43,
+      "in_doc_rate": 0.9302325581395349,
+      "not_in_doc_correct": 0,
+      "not_in_doc_total": 19,
+      "not_in_doc_rate": 0.0
+    },
+    "hallucination": {
+      "detected": 9,
+      "total": 43,
+      "rate": 0.20930232558139536
+    },
+    "edge_case": {
+      "handled": 3,
+      "total": 4,
+      "rate": 0.75
+    },
+    "performance": {
+      "total": 0,
+      "avg_ms": 0,
+      "min_ms": 0,
+      "max_ms": 0
+    }
+  },
+  "accuracy_results": [
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What was the global CO2 emission figure in 2023?",
+      "answer": "The global CO\u2082 emissions in 2023 were **36.8\u202fbillion tonnes**.",
+      "sources": [
+        "Climate Change Report 2023\nGlobal Temperature Rise\nThe average global temperature has increased by approximately 1.1 degrees Celsius compared to pre-industrial levels. The Paris Agreement aims to limi"
+      ],
+      "elapsed_ms": 2269.4,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "According to the document, how much has sea level risen since 1900?",
+      "answer": "According to the document, sea level has risen by **20 centimeters** since 1900.",
+      "sources": [
+        "Sea Level Rise\nGlobal sea levels have risen by 20 centimeters since 1900. The rate of rise is accelerating, currently at 4.5 millimeters per year. Coastal cities including Mumbai, Shanghai, and Miami "
+      ],
+      "elapsed_ms": 16033.6,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which three countries are the largest CO2 emitters and what are their emissions?",
+      "answer": "**Top 3 CO\u2082\u2011emitting countries (2022\u20132023)**  \n\n| Rank | Country | CO\u2082 emissions (gigatonnes\u202fCO\u2082\u202fyr\u207b\u00b9) | Source |\n|------|---------|------------------------------------|--------|\n| 1 | **China** | **\u2248\u202f10.0\u202fGt\u202fCO\u2082** | Global Carbon Atlas 2023; Global Carbon Project 2023 |\n| 2 | **United States** | **\u2248\u202f5.4\u202fGt\u202fCO\u2082** | Global Carbon Atlas 2023; Global Carbon Project 2023 |\n| 3 | **India** | **\u2248\u202f2.7\u202fGt\u202fCO\u2082** | Global Carbon Atlas 2023; Global Carbon Project 2023 |\n\n### Key points\n\n- **Units** \u2013 The figures are in **gigatonnes of CO\u2082 per year** (Gt\u202fCO\u2082\u202fyr\u207b\u00b9).  \n- **Scope** \u2013 They include CO\u2082 from fossil\u2011fuel combustion and cement production (the \u201cScope\u202f1\u201d and \u201cScope\u202f2\u201d emissions that most national inventories report).  \n- **Year** \u2013 The numbers reflect the most recent complete year for which data are available (2022 for China and the U.S.; 2023 for India, with the 2023 figure rounded from the latest Global Carbon Atlas update).  \n- **Variability** \u2013 Slight differences can appear between data sets (e.g., the World Bank, UNEP, or national inventories) due to methodology or reporting lags, but the ranking remains consistent: China, the United States, and India are the top three emitters worldwide.\n\nThese three countries together account for roughly **70\u202f%** of global CO\u2082 emissions, underscoring the importance of their climate policies in the international effort to limit warming.",
+      "sources": [],
+      "elapsed_ms": 690.2,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the current rate of sea level rise?",
+      "answer": "**Global mean sea\u2011level rise (GMSLR) \u2013 2024\u20112026**\n\n| Metric | Value | Source |\n|--------|-------|--------|\n| **Average rate (2020\u20112024)** | **\u2248\u202f3.3\u202fmm\u202fyr\u207b\u00b9** | IPCC\u202fAR6 Working Group I, *Summary for Policymakers* (2021) \u2013 based on satellite altimetry (2003\u20112023) and tide\u2011gauge records. |\n| **Acceleration (2003\u20112023)** | **\u2248\u202f0.08\u202fmm\u202fyr\u207b\u00b2** | IPCC\u202fAR6 \u2013 indicates the rate is increasing by ~0.08\u202fmm per year each year. |\n| **Recent 5\u2011year trend (2019\u20112024)** | **\u2248\u202f3.4\u202fmm\u202fyr\u207b\u00b9** | NOAA/NOAA\u2011NOAA Sea Level Rise Toolkit (2024). |\n| **Projected 2100 (RCP\u202f8.5)** | **\u2248\u202f0.7\u20131.1\u202fm** | IPCC\u202fAR6 \u2013 1.1\u202fm is the upper bound for a \u201chigh\u2011emission\u201d scenario. |\n\n### How the numbers are derived\n\n| Method | What it measures | Typical uncertainty |\n|--------|------------------|----------------------|\n| **Satellite altimetry** (e.g., TOPEX/Poseidon, Jason\u20111/2/3, Sentinel\u20113) | Direct sea\u2011surface height above a reference ellipsoid | \u00b1\u202f0.1\u202fmm\u202fyr\u207b\u00b9 |\n| **Tide gauges** (global network) | Sea\u2011level relative to local land | \u00b1\u202f0.2\u202fmm\u202fyr\u207b\u00b9 (after correcting for land motion) |\n| **Gravity\u2011field missions** (GRACE/GRACE\u2011Follow\u2011On) | Mass change in the ocean (water + ice) | \u00b1\u202f0.05\u202fmm\u202fyr\u207b\u00b9 |\n| **Combined analysis** (e.g., IPCC, NOAA) | Weighted average of all above | \u00b1\u202f0.1\u202fmm\u202fyr\u207b\u00b9 |\n\n### Regional variations\n\n| Region | Typical rate (2020\u20112024) | Notes |\n|--------|--------------------------|-------|\n| **North America (coastal)** | 3.5\u20134.5\u202fmm\u202fyr\u207b\u00b9 | Land subsidence in the Gulf Coast and parts of the Pacific Northwest increases local rise. |\n| **Europe (North\u2011West)** | 3.0\u20133.5\u202fmm\u202fyr\u207b\u00b9 | Slightly lower than global mean due to ocean dynamics. |\n| **Asia (East\u2011Coast)** | 2.5\u20133.0\u202fmm\u202fyr\u207b\u00b9 | Land uplift in some areas offsets sea\u2011level rise. |\n| **Australia (Coastal)** | 3.0\u20133.5\u202fmm\u202fyr\u207b\u00b9 | Influenced by the Indian Ocean Dipole. |\n| **South America (Atlantic)** | 3.0\u20133.5\u202fmm\u202fyr\u207b\u00b9 | Similar to global mean. |\n\n### Why the rate matters\n\n- **Infrastructure**: Coastal defenses designed for 2\u202fmm\u202fyr\u207b\u00b9 are now under\u2011prepared.\n- **Ecosystems**: Salt marshes and mangroves are losing habitat at ~3\u202fmm\u202fyr\u207b\u00b9.\n- **Policy**: Many national adaptation plans use the 3.3\u202fmm\u202fyr\u207b\u00b9 figure as a baseline.\n\n### Quick reference\n\n- **Current global mean**: **\u2248\u202f3.3\u202fmm\u202fyr\u207b\u00b9** (accelerating).\n- **Acceleration**: **\u2248\u202f0.08\u202fmm\u202fyr\u207b\u00b2**.\n- **Projected 2100 (high\u2011emission)**: **\u2248\u202f0.7\u20131.1\u202fm**.\n\n---\n\n**Sources**\n\n1. IPCC Working Group I, *Climate Change 2021: The Physical Science Basis*, Chapter\u202f6 \u2013 Sea\u2011level rise (2021).\n2. NOAA National Centers for Environmental Information, *Sea Level Rise Toolkit* (2024).\n3. ESA/GRACE\u2011Follow\u2011On, *Ocean Mass Change* (2023).\n4. World Meteorological Organization, *Global Sea Level Observations* (2024).\n\nFeel free to ask if you need more detail on a specific region or on how the measurements are processed!",
+      "sources": [],
+      "elapsed_ms": 545.7,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which cities face significant flooding risks?",
+      "answer": "**Cities that are widely recognized as facing significant flooding risks**  \n*(based on climate\u2011change projections, historical flood records, and expert assessments up to 2024)*\n\n| Region | City | Why it\u2019s at risk | Key risk drivers | Typical flood scenario |\n|--------|------|------------------|------------------|------------------------|\n| **North America** | **New York City, USA** | Coastal storm surge + sea\u2011level rise | Hurricane\u2011scale storms, rising tide, levee breaches | 100\u2011yr storm surge + 1\u20112\u202fm sea\u2011level rise \u2192 10\u201120\u202f% of the city inundated |\n| | **Miami, USA** | Low elevation, porous limestone | Sea\u2011level rise, saltwater intrusion | 1\u20112\u202fm rise \u2192 30\u202f% of the city flooded |\n| | **Houston, USA** | Riverine + coastal | Heavy rainfall, levee failures, Gulf storm surge | 100\u2011yr flood + 1\u202fm rise \u2192 15\u202f% of the city |\n| | **New Orleans, USA** | Below sea level, levee system | Storm surge, levee breaches | 100\u2011yr surge + 1\u202fm rise \u2192 50\u202f% of the city |\n| **Europe** | **Amsterdam, Netherlands** | Low\u2011lying delta | Sea\u2011level rise, storm surge | 1\u20112\u202fm rise + 100\u2011yr surge \u2192 30\u202f% of the city |\n| | **London, UK** | Thames floodplain | River flooding, sea\u2011level rise | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Venice, Italy** | High tide \u201cacqua alta\u201d | Sea\u2011level rise, sediment compaction | 1\u20112\u202fm rise + 100\u2011yr surge \u2192 20\u202f% of the city |\n| **Asia** | **Jakarta, Indonesia** | Subsidence + sea\u2011level rise | Groundwater extraction, mangrove loss | 1\u20113\u202fm rise + 100\u2011yr surge \u2192 40\u202f% of the city |\n| | **Dhaka, Bangladesh** | River delta, monsoon | River flooding, sea\u2011level rise | 100\u2011yr flood + 1\u202fm rise \u2192 30\u202f% of the city |\n| | **Mumbai, India** | Coastal, heavy monsoon | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 15\u202f% of the city |\n| | **Shanghai, China** | Low\u2011lying, tidal | Sea\u2011level rise, storm surge | 1\u20112\u202fm rise + 100\u2011yr surge \u2192 20\u202f% of the city |\n| | **Bangkok, Thailand** | Riverine + coastal | River flooding, sea\u2011level rise | 100\u2011yr flood + 1\u202fm rise \u2192 25\u202f% of the city |\n| | **Manila, Philippines** | Coastal, typhoons | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 20\u202f% of the city |\n| | **Ho Chi Minh City, Vietnam** | Delta, typhoons | River flooding, sea\u2011level rise | 100\u2011yr flood + 1\u202fm rise \u2192 30\u202f% of the city |\n| | **Kuala Lumpur, Malaysia** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Singapore** | Coastal, high rainfall | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 5\u202f% of the city |\n| | **Seoul, South Korea** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Tokyo, Japan** | Coastal, typhoons | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 15\u202f% of the city |\n| | **Beijing, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Guangzhou, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Shenzhen, China** | Coastal, typhoons | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Hong Kong, China** | Coastal, typhoons | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Taipei, Taiwan** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Kaohsiung, Taiwan** | Coastal, typhoons | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Taiyuan, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Chengdu, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Kunming, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Nanjing, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Wuhan, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Xi\u2019an, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Chongqing, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Guangzhou, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Shenyang, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Harbin, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Ningbo, China** | Coastal, typhoons | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Zhengzhou, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Changsha, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Suzhou, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Hangzhou, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Qingdao, China** | Coastal, typhoons | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Dalian, China** | Coastal, typhoons | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Shenzhen, China** | Coastal, typhoons | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Guangzhou, China** | Coastal, typhoons | Storm surge, sea\u2011level rise | 100\u2011yr surge + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Chengdu, China** | Riverine | Heavy rainfall, river overflow | 100\u2011yr flood + 1\u202fm rise \u2192 10\u202f% of the city |\n| | **Kunming, China** | Riverine",
+      "sources": [],
+      "elapsed_ms": 557.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What solar panel efficiency was achieved in 2023?",
+      "answer": "**Short answer**\n\n- **Lab\u2011record (single\u2011cell) efficiency in 2023:** **47.1\u202f%** (perovskite\u2011silicon tandem cell, University of New\u202fSouth\u202fWales, 2023).  \n- **Commercial\u2011module efficiency in 2023:** **\u2248\u202f23.5\u202f%** (SunPower A\u2011Series, 2023; other top\u2011tier modules were in the 22\u201323\u202f% range).\n\n---\n\n### 1.  Record\u2011breaking laboratory efficiencies\n\n| Year | Cell type | Record efficiency | Institution / Company | Reference |\n|------|-----------|-------------------|-----------------------|-----------|\n| 2023 | Perovskite\u2011silicon tandem (single\u2011junction perovskite + silicon back cell) | **47.1\u202f%** | University of New\u202fSouth\u202fWales (UNSW) | *Nature Energy* 2023, 8, 1234\u20111240 |\n| 2023 | Single\u2011junction silicon | **26.7\u202f%** | National Renewable Energy Laboratory (NREL) | *Science* 2023, 380, 1234\u20111239 |\n| 2023 | Single\u2011junction perovskite | **29.5\u202f%** | University of Oxford | *Nature* 2023, 618, 123\u2011128 |\n\n**Why 47.1\u202f% matters**  \nThe 47.1\u202f% tandem cell is the highest efficiency ever achieved for a single solar cell (not a module). It combines a high\u2011bandgap perovskite top cell (~1.7\u202feV) with a silicon bottom cell (~1.1\u202feV), exploiting the full solar spectrum more efficiently than any single\u2011junction technology.\n\n---\n\n### 2.  Commercial module efficiencies (2023)\n\n| Manufacturer | Module model | Peak efficiency (STC) | Notes |\n|--------------|--------------|-----------------------|-------|\n| SunPower | A\u2011Series (A\u2011Series 3\u2011cell) | **23.5\u202f%** | Highest\u2011efficiency commercial module in 2023; uses half\u2011cell architecture and advanced encapsulation. |\n| LG | NeON R | **23.4\u202f%** | 6\u2011cell module; high\u2011temperature coefficient. |\n| Panasonic | HIT\u2011Series | **23.2\u202f%** | HIT (heterojunction) technology. |\n| Canadian Solar | HiKu | **22.9\u202f%** | 6\u2011cell module; cost\u2011effective. |\n| Trina Solar | Vertex S | **22.8\u202f%** | 6\u2011cell module; high yield. |\n\n**Key points**\n\n- **Commercial modules** are limited by manufacturing constraints (e.g., wafer size, defect density, cost). The 23\u201324\u202f% range is the practical ceiling for 2023\u2011era modules.\n- **Tandem modules** (perovskite\u2011silicon) are still in the research\u2011to\u2011prototype stage; commercial deployment is expected in the mid\u20112020s, potentially pushing module efficiencies above 27\u202f%.\n\n---\n\n### 3.  How to interpret the numbers\n\n| Term | What it means | Typical application |\n|------|---------------|---------------------|\n| **Cell efficiency** | Fraction of incident sunlight converted to electricity in a single cell. | Lab records, research prototypes. |\n| **Module efficiency** | Fraction of incident sunlight converted to electricity in a full module (multiple cells wired together). | Commercial solar panels. |\n| **STC** | Standard Test Conditions (1000\u202fW/m\u00b2, 25\u202f\u00b0C, AM\u202f1.5G spectrum). | Benchmark for comparing modules. |\n\n---\n\n### 4.  Where to find the latest data\n\n- **International Energy Agency (IEA) \u2013 Solar PV Technology Roadmap** (annual updates).  \n- **NREL \u2013 PV Efficiency Database** (publicly available).  \n- **Journal articles** (e.g., *Nature Energy*, *Science*, *Advanced Energy Materials*).  \n- **Manufacturer datasheets** (SunPower, LG, Panasonic, etc.).\n\n---\n\n**Bottom line:** In 2023, the *record* efficiency for a single solar cell reached **47.1\u202f%** (perovskite\u2011silicon tandem). Commercial modules topped out around **23.5\u202f%**. The gap between lab records and commercial products is narrowing as tandem technologies move toward market readiness.",
+      "sources": [],
+      "elapsed_ms": 546.3,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How much of Germany's electricity comes from renewable sources?",
+      "answer": "**Short answer:**  \nAs of the most recent data (2023), roughly **50\u202f% of Germany\u2019s electricity consumption is supplied by renewable sources** (wind, solar, hydro, biomass, etc.).\n\n---\n\n### How the figure is calculated\n\n| Year | Renewable share of **gross electricity consumption** | Source |\n|------|------------------------------------------------------|--------|\n| 2022 | 45.5\u202f% | German Federal Ministry for Economic Affairs and Energy (BMWi) \u2013 \u201cRenewable Energy Sources in Germany\u201d |\n| 2023 | 50.3\u202f% | BMWi \u2013 \u201cRenewable Energy Sources in Germany\u201d (latest update) |\n\n*Gross electricity consumption* includes all electricity generated in Germany plus imports, minus exports. The share is calculated by dividing the total renewable electricity generated (in terawatt\u2011hours, TWh) by the total gross consumption.\n\n---\n\n### Context & Key Points\n\n| Topic | Detail |\n|-------|--------|\n| **Renewable mix** | Wind (on\u2011shore & offshore) ~ 25\u202f%, Solar PV ~ 20\u202f%, Biomass & biogas ~ 5\u202f%, Hydro ~ 2\u202f%, Other (e.g., waste, geothermal) ~ 1\u202f% |\n| **Trend** | The share has risen steadily: 30\u202f% in 2010 \u2192 45\u202f% in 2022 \u2192 50\u202f% in 2023. |\n| **Targets** | Germany aims for 80\u202f% renewable electricity by 2030 and 100\u202f% by 2045 (net\u2011zero emissions). |\n| **Imports/Exports** | Germany imports some electricity (especially from neighboring countries) and exports surplus renewable power, which can slightly shift the share of domestic generation vs. consumption. |\n| **Policy drivers** | Feed\u2011in tariffs, the Renewable Energy Sources Act (EEG), and the 2021 \u201cEnergiewende\u201d reforms have accelerated renewable deployment. |\n\n---\n\n### Quick Takeaway\n\n- **50\u202f%** of Germany\u2019s electricity consumption comes from renewables (2023).\n- The share is growing rapidly, driven by large expansions in wind and solar.\n- Germany is on track to hit its 2030 target of 80\u202f% renewable electricity, but still needs significant investment and grid upgrades to reach 100\u202f% by 2045.\n\n---\n\n**Sources**\n\n1. **BMWi \u2013 Renewable Energy Sources in Germany (2023)**  \n   <https://www.bmwi.de/Redaktion/DE/Publikationen/Statistiken/erneuerbare-energien-2023.pdf>\n2. **Statistisches Bundesamt (Destatis) \u2013 Energy Statistics**  \n   <https://www.destatis.de/EN/Themes/Economy/Energy/energy-statistics.html>\n3. **IEA \u2013 Germany Energy Profile**  \n   <https://www.iea.org/countries/germany>\n\nFeel free to ask if you\u2019d like more detail on a specific renewable sector or on how the share is projected to evolve in the coming years!",
+      "sources": [],
+      "elapsed_ms": 497.1,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many climate refugees are projected by 2050?",
+      "answer": "",
+      "sources": [],
+      "elapsed_ms": 1047.3,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What does the Paris Agreement target for net-zero emissions year?",
+      "answer": "The Paris Agreement does **not** set a specific calendar year for net\u2011zero. Instead, it calls for **\u201cnet\u2011zero greenhouse\u2011gas emissions in the second half of the 21st\u202fcentury.\u201d** In other words, the target is to reach net\u2011zero sometime between 2050 and 2100, with the aim of limiting global warming to well below 2\u202f\u00b0C (and pursuing 1.5\u202f\u00b0C) relative to pre\u2011industrial levels.",
+      "sources": [],
+      "elapsed_ms": 526.5,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "By how much are current policies projected to increase temperature by 2100?",
+      "answer": "**Projected temperature rise by 2100 under \u201ccurrent policies\u201d**\n\n| Source | Scenario name | Median projected increase (\u00b0C above pre\u2011industrial) | 5th\u201395th percentile range |\n|--------|---------------|-----------------------------------------------------|---------------------------|\n| IPCC\u202fAR6 (2021) | **\u201cCurrent trajectory\u201d** (i.e., the net\u2011zero pledges made so far, including the Paris Agreement commitments) | **\u2248\u202f3.7\u202f\u00b0C** | **3.2\u202f\u2013\u202f4.8\u202f\u00b0C** |\n\n**Key points**\n\n1. **What \u201ccurrent policies\u201d mean**  \n   * The IPCC defines the \u201ccurrent trajectory\u201d as the pathway that follows the national pledges made under the Paris Agreement (the \u201cNationally Determined Contributions\u201d or NDCs) plus the existing policies that are already in place.  \n   * It does **not** assume any additional mitigation actions beyond those already pledged.\n\n2. **Why the range**  \n   * The spread reflects uncertainties in future emissions, climate sensitivity, and the effectiveness of the pledges.  \n   * The median (\u2248\u202f3.7\u202f\u00b0C) is the most likely outcome given the current trajectory.\n\n3. **Comparison to targets**  \n   * The Paris Agreement aims to keep warming well below 2\u202f\u00b0C, ideally 1.5\u202f\u00b0C.  \n   * The projected 3.2\u20134.8\u202f\u00b0C range far exceeds both targets, underscoring the need for more ambitious action.\n\n4. **Where to find the numbers**  \n   * IPCC AR6, *Summary for Policymakers* (2021), Table\u202f1.3.  \n   * The full report (Chapter\u202f6) provides the detailed methodology and assumptions.\n\n**Bottom line:** Under the policies and pledges that are in place today, the global mean temperature is projected to rise by roughly **3\u20134\u202f\u00b0C** above pre\u2011industrial levels by 2100.",
+      "sources": [],
+      "elapsed_ms": 777.5,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the chemical formula for CFCs?",
+      "answer": "**Chlorofluorocarbons (CFCs)** are a family of organofluorine compounds that contain one or more carbon atoms bonded to chlorine and fluorine atoms.  \nThe most common way to express their general composition is:\n\n\\[\n\\boxed{\\text{CCl}_x\\text{F}_{4-x}}\n\\]\n\nwhere:\n\n- **C** = one or more carbon atoms (usually one in the classic CFCs).  \n- **Cl** = chlorine atoms (x = 1, 2, 3, or 4).  \n- **F** = fluorine atoms (4\u202f\u2013\u202fx).\n\n### Typical Examples\n\n| Formula | Common Name | Use |\n|---------|-------------|-----|\n| CCl\u2082F\u2082 | Freon\u201112 | Refrigerant, propellant |\n| CCl\u2083F | Freon\u201111 | Refrigerant, aerosol propellant |\n| CClF\u2083 | Freon\u201113 | Refrigerant, solvent |\n| CCl\u2084 | Carbon tetrachloride | Solvent, cleaning agent (now largely phased out) |\n\n### Why the Formula Looks Like That\n\n- **Carbon** is the central atom in these molecules.  \n- **Chlorine** and **fluorine** atoms replace hydrogen atoms that would normally be attached to carbon in hydrocarbons.  \n- The total number of halogen atoms (Cl\u202f+\u202fF) is typically **four** in the classic CFCs, giving the simple pattern CCl\u2093F\u2084\u208b\u2093.\n\n### Quick Reference\n\n- **CCl\u2082F\u2082** \u2192 2 Cl, 2 F  \n- **CCl\u2083F** \u2192 3 Cl, 1 F  \n- **CClF\u2083** \u2192 1 Cl, 3 F  \n- **CCl\u2084** \u2192 4 Cl, 0 F  \n\nIf you need a specific CFC\u2019s exact formula or its properties, just let me know!",
+      "sources": [],
+      "elapsed_ms": 1006.1,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "How much does a carbon capture plant cost in India?",
+      "answer": "",
+      "sources": [],
+      "elapsed_ms": 760.6,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "When was the Kyoto Protocol signed?",
+      "answer": "The Kyoto Protocol was adopted and signed on **December\u202f11,\u202f1997**.",
+      "sources": [],
+      "elapsed_ms": 738.3,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the ozone layer depletion rate?",
+      "answer": "**Short answer:**  \nThe ozone layer is no longer \u201cdepleting\u201d at the rapid pace it once did.  Current measurements show a *very small net loss* (\u2248\u202f0.1\u202f%\u202fyr\u207b\u00b9) or even a slight net gain in many regions, and the Antarctic ozone hole is shrinking by roughly 10\u202f% per decade.\n\n---\n\n## 1. How we measure \u201cdepletion\u201d\n\n| Term | What it means | Typical units |\n|------|---------------|---------------|\n| **Total column ozone** | The amount of ozone in a vertical column of air from the surface to the top of the atmosphere | Dobson Units (DU) \u2013 1\u202fDU\u202f\u2248\u202f2.69\u202f\u00d7\u202f10\u00b9\u2076\u202fmolecules\u202fm\u207b\u00b2 |\n| **Ozone hole** | The region over Antarctica where the column ozone falls below 220\u202fDU (the \u201ccritical\u201d threshold) | Area (million\u202fkm\u00b2) |\n| **Depletion rate** | The change in total column ozone (or hole area) per year | %\u202fyr\u207b\u00b9 or DU\u202fyr\u207b\u00b9 |\n\n### Why Dobson Units?\n- 1\u202fDU = 0.01\u202f\u00b5g\u202fm\u207b\u00b2 of ozone.\n- Global average \u2248\u202f300\u202fDU; the critical threshold for the hole is 220\u202fDU.\n\n---\n\n## 2. Historical context\n\n| Period | Depletion trend | Key drivers |\n|--------|-----------------|-------------|\n| 1970s\u2011early 1990s | Rapid decline (~\u202f0.5\u202f%\u202fyr\u207b\u00b9) | CFCs, HCFCs, halons |\n| 1992\u20112000 | Plateau, then slight recovery | Montreal Protocol, phase\u2011out of CFCs |\n| 2000\u2011present | Very slow decline or slight recovery | Continued phase\u2011out, new regulations |\n\n---\n\n## 3. Current numbers (2023\u20112024)\n\n| Metric | Value | Trend |\n|--------|-------|-------|\n| **Global average column ozone** | ~\u202f300\u202fDU | ~\u202f+0.1\u202f%\u202fyr\u207b\u00b9 (slight increase) |\n| **Antarctic ozone hole area** | ~\u202f200\u202fmillion\u202fkm\u00b2 | ~\u202f\u201310\u202f% per decade |\n| **Deficit over the hole (220\u202fDU threshold)** | ~\u202f200\u202fDU | ~\u202f\u20131.5\u202fDU\u202fyr\u207b\u00b9 (i.e., the deficit is shrinking) |\n| **Stratospheric temperature (proxy for ozone)** | Slight warming | Indicates recovery |\n\n> **Bottom line:** The ozone layer is on a recovery trajectory.  The net depletion rate is now essentially zero or slightly negative (i.e., a net gain) in most parts of the world.\n\n---\n\n## 4. Where the numbers come from\n\n| Source | What they provide | How often |\n|--------|-------------------|-----------|\n| **NOAA\u2019s Ozone Monitoring Instrument (OMI)** | Satellite\u2011derived total column ozone | Daily |\n| **WMO/UNEP Ozone Assessment** | Global and regional trends | Annual |\n| **NASA\u2019s Aura/MLS** | Stratospheric ozone profiles | Continuous |\n| **European Centre for Medium\u2011Range Weather Forecasts (ECMWF)** | Model\u2011based reconstructions | Continuous |\n\n---\n\n## 5. Regional variations\n\n| Region | Typical trend | Notes |\n|--------|---------------|-------|\n| **Antarctica** | Decreasing hole area | Strongest recovery |\n| **Arctic** | Slight increase in column ozone | Less affected by CFCs |\n| **Mid\u2011latitudes** | Near\u2011zero change | Minor seasonal variations |\n| **Tropics** | Slight increase | Ozone production from UV\u2011driven chemistry |\n\n---\n\n## 6. What \u201cdepletion rate\u201d means for policy\n\n- **Montreal Protocol**: The phase\u2011out schedule has been largely successful; the rate of decline in CFCs is the main driver of the recovery.\n- **Future scenarios**: If all phase\u2011out schedules are met, the ozone layer should return to pre\u2011industrial levels by ~\u202f2050\u20132060 (depending on the region).\n- **Monitoring**: Continued satellite and ground\u2011based observations are essential to verify the recovery trajectory.\n\n---\n\n## 7. Quick reference table\n\n| Metric | Current value | Annual change | 10\u2011yr change |\n|--------|---------------|---------------|--------------|\n| Global average column ozone | 300\u202fDU | +0.1\u202f%\u202fyr\u207b\u00b9 | +1\u202f% |\n| Antarctic hole area | 200\u202fmillion\u202fkm\u00b2 | \u201310\u202f%\u202fdecade | \u201310\u202f% |\n| Ozone deficit (220\u202fDU) | 200\u202fDU | \u20131.5\u202fDU\u202fyr\u207b\u00b9 | \u201315\u202fDU |\n\n---\n\n### Bottom line for the layperson\n\n- **The ozone layer is not \u201cgoing to disappear.\u201d**  \n- **It is slowly recovering** thanks to international policy and reduced emissions of ozone\u2011depleting substances.  \n- **The net depletion rate is now essentially zero or slightly negative** (i.e., a net gain) in most parts of the world.\n\nIf you need the most up\u2011to\u2011date numbers for a specific region or year, the NOAA OMI website and the WMO/UNEP Ozone Assessment reports are the best real\u2011time references.",
+      "sources": [],
+      "elapsed_ms": 671.8,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many people have walked on the Moon?",
+      "answer": "Only **12 people** have ever walked on the Moon. All of them were astronauts from NASA\u2019s Apollo program (1971\u20111972):\n\n| Mission | Astronauts who walked on the Moon | Date |\n|---------|-----------------------------------|------|\n| Apollo\u202f11 | Neil\u202fArmstrong, Buzz\u202fAldrin | July\u202f20,\u202f1969 |\n| Apollo\u202f12 | Charles\u202fL. \u201cPete\u201d\u202fConrad, Alan\u202fL. Bean | November\u202f14,\u202f1969 |\n| Apollo\u202f14 | Alan\u202fB. Shepard, Edgar\u202fD. Mitchell | February\u202f5,\u202f1971 |\n| Apollo\u202f15 | David\u202fR. Scott, James\u202fB. Irwin | July\u202f30,\u202f1971 |\n| Apollo\u202f16 | John\u202fW. Young, Charles\u202fM. Duke | April\u202f21,\u202f1972 |\n| Apollo\u202f17 | Eugene\u202fA. Cernan, Harrison\u202fH. Schmitt | December\u202f11,\u202f1972 |\n\nSince Apollo\u202f17, no human has set foot on the lunar surface. Thus the total remains **12**.",
+      "sources": [],
+      "elapsed_ms": 489.8,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What happened during the Apollo 13 mission?",
+      "answer": "**Apollo\u202f13 \u2013 \u201cThe Mission That Almost Wasn\u2019t\u201d**\n\n| Date | Event | Key Details |\n|------|-------|-------------|\n| **April\u202f11,\u202f1970** | Launch | Saturn\u202fV lifted off from Cape Kennedy (now Cape Canaveral). Crew: Commander Jim\u202fLovell, Command Module Pilot Jack\u202fSwigert, Lunar Module Pilot Fred\u202fHaise. |\n| **April\u202f13,\u202f1970** | Oxygen\u2011tank explosion | 56\u202fminutes into flight, an O\u2082 tank in the Service Module (SM) ruptured. The explosion blew out the tank, ruptured the SM\u2019s power and life\u2011support systems, and released a cloud of hot gas that damaged the Service Module\u2019s solar panels and the Command Module\u2019s (CM) main engine. |\n| **Immediate aftermath** | Loss of power & life support | The crew lost most of the SM\u2019s power, the CM\u2019s main engine, and the ability to use the CM\u2019s CO\u2082 scrubbers. The LM\u2019s descent engine was the only remaining source of attitude control and CO\u2082 removal. |\n| **\u201cHouston, we have a problem\u201d** | Communication | The phrase became iconic as the crew reported the crisis to Mission Control. |\n| **\u201cLifeboat\u201d strategy** | Using the LM | The crew jettisoned the SM and used the Lunar Module (LM) as a \u201clifeboat.\u201d The LM\u2019s descent engine was used for attitude control and to keep the spacecraft oriented for re\u2011entry. |\n| **Power conservation** | \u201cFree\u2011fly\u201d mode | The crew shut down non\u2011essential systems, used the LM\u2019s limited power, and relied on the CM\u2019s batteries for life\u2011support. |\n| **Trajectory correction** | \u201cFree\u2011fly\u201d and \u201cfree\u2011fly\u201d | The crew performed a series of \u201cfree\u2011fly\u201d burns to adjust the trajectory so that the spacecraft would re\u2011enter the Earth\u2019s atmosphere at the correct angle. |\n| **S\u2011IVB stage as a \u201csafety\u201d vehicle** | Re\u2011entry vehicle | The third stage of the Saturn\u202fV (S\u2011IVB) was left in orbit and used as a \u201csafety\u201d re\u2011entry vehicle. It was jettisoned and burned up in the atmosphere, while the CM/LM stack re\u2011entered. |\n| **April\u202f17,\u202f1970** | Splashdown | The CM/LM stack splashed down in the Pacific Ocean at 12:50\u202fp.m. (local time). All three astronauts survived, thanks to the ingenuity of the crew and the support of Mission Control. |\n| **Legacy** | \u201cSuccessful failure\u201d | Apollo\u202f13 demonstrated NASA\u2019s ability to solve unprecedented problems under extreme pressure. It became a case study in crisis management, teamwork, and engineering resilience. The mission was later dramatized in the 1995 film *Apollo\u202f13* starring Tom\u202fHanks. |\n\n### Key Take\u2011aways\n\n1. **Unexpected disaster** \u2013 A single tank explosion crippled the spacecraft\u2019s power and life\u2011support systems.\n2. **Crew ingenuity** \u2013 The astronauts used the LM\u2019s descent engine as a makeshift attitude control system and CO\u2082 scrubber.\n3. **Mission Control\u2019s role** \u2013 Ground teams devised a \u201cfree\u2011fly\u201d trajectory and coordinated the use of the S\u2011IVB stage as a safety vehicle.\n4. **Human resilience** \u2013 Despite limited resources, the crew maintained life support, communicated with Earth, and returned safely.\n5. **Historical impact** \u2013 Apollo\u202f13 remains a benchmark for problem\u2011solving in spaceflight and a reminder that even near\u2011failure can lead to success.",
+      "sources": [],
+      "elapsed_ms": 430.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "When was the first black hole image captured?",
+      "answer": "The first-ever image of a black hole\u2019s event horizon was released by the Event Horizon Telescope (EHT) collaboration on **April\u202f10,\u202f2019**.  \n\n- **Observations**: The data that produced the image were collected during a 10\u2011night observing campaign in 2017, when a global network of radio telescopes acted as a planet\u2011sized interferometer.  \n- **Release**: The image of the supermassive black hole in the galaxy M87 (M87*) was unveiled to the public on April\u202f10,\u202f2019, marking the first direct visual evidence of a black hole\u2019s shadow.  \n\nSo, while the actual radio data were captured in 2017, the first black\u2011hole image was publicly released on April\u202f10,\u202f2019.",
+      "sources": [],
+      "elapsed_ms": 720.8,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many confirmed moons does Saturn have as of 2023?",
+      "answer": "As of 2023, **Saturn has 83 confirmed moons**. This count includes all the satellites that have been officially recognized by the International Astronomical Union (IAU) and whose orbits have been well\u2011determined.",
+      "sources": [],
+      "elapsed_ms": 406.6,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the mass of Sagittarius A in Suns?",
+      "answer": "**Sagittarius\u202fA\\* (the Milky Way\u2019s central supermassive black hole)**  \n- **Mass:** \u2248\u202f4\u202f\u00d7\u202f10\u2076\u202fM\u2609 (about 4\u202fmillion times the mass of the Sun).  \n- **More precise value (from stellar\u2011orbit studies):** 4.1\u202f\u00b1\u202f0.1\u202f\u00d7\u202f10\u2076\u202fM\u2609.  \n- **In kilograms:** \u2248\u202f8.2\u202f\u00d7\u202f10\u00b3\u2076\u202fkg (using 1\u202fM\u2609\u202f=\u202f1.989\u202f\u00d7\u202f10\u00b3\u2070\u202fkg).\n\nThis mass is determined from the orbits of stars (e.g., S2) around the black hole, measured with high\u2011precision infrared astrometry and spectroscopy. The value is now known to within a few percent.",
+      "sources": [],
+      "elapsed_ms": 596.4,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many years did Opportunity rover operate on Mars?",
+      "answer": "Opportunity\u2019s mission on the Martian surface lasted **about 15\u202fyears**.  \nMore precisely, it landed on January\u202f25\u202f2004 and its last signal was received on June\u202f10\u202f2018 \u2013 a total of **14\u202fyears, 4\u202fmonths, and 16\u202fdays** of active operation on Mars.",
+      "sources": [],
+      "elapsed_ms": 512.9,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What was the name of Perseverance's companion helicopter?",
+      "answer": "The companion helicopter that flew alongside Perseverance was called **Ingenuity**.",
+      "sources": [],
+      "elapsed_ms": 579.4,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "At what altitude does the ISS orbit Earth?",
+      "answer": "The International Space Station (ISS) orbits Earth at roughly **400\u202fkm (about 250\u202fmiles) above the surface**.  \n\n- **Typical altitude:** ~408\u202fkm (\u2248253\u202fmi).  \n- **Range:** It usually stays between ~400\u202fkm and ~420\u202fkm, depending on atmospheric drag and periodic re\u2011boost maneuvers.  \n\nThe station\u2019s orbit is a low\u2011Earth orbit (LEO) with a period of about 90\u202fminutes, completing roughly 16 orbits each day.",
+      "sources": [],
+      "elapsed_ms": 565.3,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which five countries collaborated on ISS construction?",
+      "answer": "The International Space Station was built by five major space\u2011agency partners, representing five countries (or regions):\n\n| Partner | Country/Region | Agency |\n|---------|----------------|--------|\n| **United States** | USA | NASA |\n| **Russia** | Russia | Roscosmos |\n| **Canada** | Canada | Canadian Space Agency (CSA) |\n| **Japan** | Japan | Japan Aerospace Exploration Agency (JAXA) |\n| **Europe** | European Union (member states) | European Space Agency (ESA) |\n\nSo the five countries/regions that collaborated on the ISS construction are the United States, Russia, Canada, Japan, and the European Union (through ESA).",
+      "sources": [],
+      "elapsed_ms": 509.7,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many Falcon 9 launches has SpaceX conducted as of 2023?",
+      "answer": "As of the end of 2023, SpaceX had carried out **140 Falcon\u202f9 launches**.  \nThis count includes every flight of the Falcon\u202f9 from its first launch in June\u202f2010 up through the 2023 schedule, covering government, commercial, and Starlink missions.  \n\n*Source:* The \u201cList of Falcon\u202f9 launches\u201d on Wikipedia (updated through 2023) and SpaceX\u2019s own launch history pages.",
+      "sources": [],
+      "elapsed_ms": 618.6,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the composition of dark matter in galaxies?",
+      "answer": "**Short answer:**  \nWe don\u2019t yet know what dark matter is made of.  The evidence tells us it is **non\u2011baryonic, electrically neutral, long\u2011lived, and interacts only through gravity (and possibly very weakly through other forces)**.  The leading particle candidates that fit all the cosmological, astrophysical, and laboratory constraints are:\n\n| Candidate | Key properties | Why it\u2019s still viable | Current status |\n|-----------|----------------|-----------------------|----------------|\n| **WIMPs** (Weakly Interacting Massive Particles) | 10\u202fGeV\u201310\u202fTeV, weak\u2011scale interactions, thermal relic | \u201cWIMP miracle\u201d gives the right relic density; fits cold\u2011dark\u2011matter (CDM) structure formation | No confirmed signal in direct\u2011detection (LUX\u2011Z, XENONnT, PandaX\u20114T) or indirect\u2011detection (Fermi\u2011LAT, H.E.S.S.) searches; collider limits push masses above ~1\u202fTeV for many models |\n| **Axions / Axion\u2011like particles** | \u03bceV\u2013meV mass, very weak couplings to photons & matter | Solve the strong\u2011CP problem; can be produced non\u2011thermally with the right abundance | Experiments (ADMX, HAYSTAC, CASPEr) are probing the most motivated mass range; no detection yet |\n| **Sterile neutrinos** | keV\u2013MeV mass, mix weakly with active neutrinos | Warm\u2011dark\u2011matter (WDM) candidate; can explain some small\u2011scale structure anomalies | X\u2011ray line searches (e.g., 3.5\u202fkeV line) give hints but are controversial; mixing angles constrained by structure formation |\n| **Primordial black holes (PBHs)** | 10\u207b\u2076\u201310\u2076\u202fM\u2299 (or smaller) | Can form in the early universe; no need for new particles | Microlensing, CMB, and gravitational\u2011wave constraints rule out most mass ranges; a small fraction of the dark matter could still be PBHs |\n| **Self\u2011interacting dark matter (SIDM)** | Any particle that scatters with \u03c3/m ~ 0.1\u201310\u202fcm\u00b2\u202fg\u207b\u00b9 | Addresses core\u2011cusp, too\u2011big\u2011to\u2011fail, and missing\u2011satellite problems | Models with light mediators (e.g., dark photons) are actively tested in dwarf\u2011galaxy dynamics and cluster collisions |\n| **Fuzzy / wave dark matter** | Ultra\u2011light scalar (m\u202f~\u202f10\u207b\u00b2\u00b2\u202feV) | Quantum pressure can produce cores in dwarf galaxies | Lyman\u2011\u03b1 forest and dwarf\u2011galaxy kinematics set lower limits on the mass; still a viable alternative to CDM |\n| **Other exotic candidates** (e.g., dark photons, hidden\u2011sector scalars, composite states) | Various masses and interactions | Some can mimic WIMP or axion phenomenology | Constrained by a combination of cosmology, astrophysics, and laboratory experiments |\n\n---\n\n## Why we know it can\u2019t be ordinary (baryonic) matter\n\n| Observation | Implication |\n|-------------|-------------|\n| **Big\u2011Bang Nucleosynthesis (BBN)** | The baryon density is tightly constrained to \u03a9_b\u202f\u2248\u202f0.05\u202fh\u207b\u00b2, far below the total matter density \u03a9_m\u202f\u2248\u202f0.31\u202fh\u207b\u00b2. |\n| **Cosmic Microwave Background (CMB)** | The acoustic peaks require a non\u2011baryonic component that does not couple to photons. |\n| **Large\u2011Scale Structure (LSS)** | Growth of structure is consistent with cold, collisionless matter; baryons would be too tightly coupled to radiation early on. |\n| **Bullet Cluster (1E\u202f0657\u201156)** | Two colliding galaxy clusters show that most of the mass (via gravitational lensing) is offset from the hot X\u2011ray gas, implying a collisionless component. |\n| **Microlensing surveys (MACHO, EROS, OGLE)** | Rule out compact objects (MACHOs) as the dominant dark\u2011matter component over a wide mass range. |\n\n---\n\n## How we search for the composition\n\n| Method | What it probes | Current limits |\n|--------|----------------|----------------|\n| **Direct detection** (e.g., XENONnT, LZ, PandaX\u20114T) | Elastic scattering of dark\u2011matter particles off nuclei | Spin\u2011independent cross\u2011section \u03c3\u202f<\u202f10\u207b\u2074\u2076\u202fcm\u00b2 for 30\u202fGeV WIMPs |\n| **Indirect detection** (e.g., Fermi\u2011LAT, H.E.S.S., AMS\u201102) | Annihilation or decay products (\u03b3\u2011rays, positrons, antiprotons) | Annihilation cross\u2011section <\u202f3\u202f\u00d7\u202f10\u207b\u00b2\u2076\u202fcm\u00b3\u202fs\u207b\u00b9 for 100\u202fGeV WIMPs |\n| **Collider searches",
+      "sources": [],
+      "elapsed_ms": 410.3,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "How many galaxies are in the observable universe?",
+      "answer": "**Answer (as of 2026):**  \nThe most widely cited estimate for the number of galaxies in the observable universe is **about 2\u202ftrillion** (\u2248\u202f2\u202f\u00d7\u202f10\u00b9\u00b2).  \n\n---\n\n## How that number is reached\n\n| Step | What was measured | How it was extrapolated | Result |\n|------|------------------|------------------------|--------|\n| 1. **Deep\u2011field imaging** | Hubble Ultra\u2011Deep Field (HUDF), Hubble Frontier Fields, JWST NIRCam deep fields | Counted galaxies down to a limiting apparent magnitude (\u2248\u202f29\u201330\u202fAB) in a tiny patch of sky (~10\u207b\u2076\u202fdeg\u00b2) | ~10\u2075\u201310\u2076 galaxies per square degree (after correcting for incompleteness) |\n| 2. **Luminosity function** | Schechter function fit to the observed counts | Extrapolated to fainter magnitudes (down to ~0.01\u202fL*) and to higher redshifts (z\u202f\u2248\u202f10\u201315) | Adds ~30\u201350\u202f% more galaxies |\n| 3. **Volume integration** | Integrated over the comoving volume of the observable universe (\u2248\u202f3.5\u202f\u00d7\u202f10\u2078\u202fMpc\u00b3) | Multiplied the surface density by the volume, accounting for cosmological dimming and redshift evolution | ~2\u202f\u00d7\u202f10\u00b9\u00b2 galaxies |\n\n### Key points\n\n1. **Definition of a \u201cgalaxy\u201d**  \n   - The count includes all bound stellar systems that are luminous enough to be detected in the rest\u2011frame UV/optical.  \n   - Extremely faint dwarf galaxies below the detection threshold are not counted directly; their contribution is inferred from the faint\u2011end slope of the luminosity function.\n\n2. **Uncertainties**  \n   - **Faint\u2011end slope (\u03b1)**: Small changes in \u03b1 (\u2248\u202f\u20131.6 to \u20131.8) can change the total by a factor of ~2.  \n   - **Cosmic variance**: The deep fields sample a tiny fraction of the sky; large\u2011scale structure can bias the counts.  \n   - **Redshift evolution**: The number density of galaxies evolves with time; extrapolations to the earliest epochs (z\u202f>\u202f10) are uncertain.  \n   - **Missing populations**: Ultra\u2011compact or heavily dust\u2011obscured galaxies may be under\u2011represented.\n\n3. **Comparison to older estimates**  \n   - **1990s\u20132000s**: ~100\u2013200\u202fbillion (10\u00b9\u00b9\u201310\u00b9\u00b2) galaxies.  \n   - **2010s**: ~600\u202fbillion (6\u202f\u00d7\u202f10\u00b9\u00b9) after Hubble deep\u2011field analyses.  \n   - **2020s**: JWST\u2019s deeper imaging and improved modeling pushed the estimate to ~2\u202ftrillion.\n\n---\n\n## Quick reference\n\n| Era | Estimate | Key data source |\n|-----|----------|-----------------|\n| 1990s | 100\u2013200\u202fbillion | Hubble Deep Field (HDF) |\n| 2010s | ~600\u202fbillion | Hubble Ultra\u2011Deep Field, CANDELS |\n| 2020s | ~2\u202ftrillion | JWST NIRCam deep fields, updated luminosity functions |\n\n---\n\n### Bottom line\n\n- **Observable\u2011universe galaxy count \u2248\u202f2\u202f\u00d7\u202f10\u00b9\u00b2**.  \n- The figure is a best\u2011fit estimate that depends on the faint\u2011end slope of the galaxy luminosity function and on extrapolations to the earliest epochs.  \n- Future surveys (e.g., Euclid, Roman Space Telescope, deeper JWST programs) may refine this number further, but the \u201ctrillion\u2011galaxy\u201d figure is the consensus as of 2026.",
+      "sources": [],
+      "elapsed_ms": 487.2,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the habitable zone distance for Proxima Centauri?",
+      "answer": "**Proxima Centauri\u2019s Habitable Zone (HZ)**  \nProxima Centauri is a very low\u2011luminosity M\u2011dwarf (\u2248\u202f0.0017\u202fL\u2609).  Because the stellar flux that a planet receives scales with the square of the distance, the region where liquid water could exist on a rocky world is much closer to the star than for a Sun\u2011like star.\n\n| HZ Definition | Approximate Distance (AU) | Notes |\n|---------------|---------------------------|-------|\n| **Conservative HZ** (based on the \u201crunaway greenhouse\u201d inner edge and \u201cmaximum greenhouse\u201d outer edge) | **0.05\u202f\u2013\u202f0.10\u202fAU** | Uses the Kopparapu et al. (2013, 2014) climate models. |\n| **Optimistic HZ** (includes the \u201crecent Venus\u201d inner edge and \u201cearly Mars\u201d outer edge) | **0.04\u202f\u2013\u202f0.13\u202fAU** | Extends the range slightly inward and outward. |\n\n**Key points**\n\n1. **Proxima\u202fb\u2019s orbit** \u2013 The only confirmed exoplanet around Proxima Centauri orbits at ~0.0485\u202fAU, right in the middle of the conservative HZ.  \n2. **Stellar activity** \u2013 Proxima is a flare star; high\u2011energy radiation and stellar winds can erode atmospheres, especially at such close distances.  \n3. **Tidal locking** \u2013 Planets this close are likely tidally locked, which can influence climate and habitability.  \n4. **Uncertainties** \u2013 The exact HZ limits depend on atmospheric composition, cloud coverage, and planetary albedo. The numbers above are based on the most widely used 1\u2011D climate models.\n\n**Quick reference**\n\n- **Inner edge (conservative):** ~0.05\u202fAU  \n- **Outer edge (conservative):** ~0.10\u202fAU  \n- **Inner edge (optimistic):** ~0.04\u202fAU  \n- **Outer edge (optimistic):** ~0.13\u202fAU  \n\nThese ranges give a good starting point for assessing whether a planet around Proxima Centauri could support liquid water on its surface.",
+      "sources": [],
+      "elapsed_ms": 584.6,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "When will the next total solar eclipse be visible in the UK?",
+      "answer": "**Next total solar eclipse visible in the UK \u2013 12\u202fAugust\u202f2026**\n\n| Item | Details |\n|------|---------|\n| **Date** | **12\u202fAugust\u202f2026** |\n| **Path of Totality** | The narrow strip of totality (\u2248\u202f100\u202fkm wide) will cross the UK from the far north of Scotland, through the Highlands, the Lake District, the Midlands, and down to the south\u2011west of England. |\n| **Duration of Totality** | Up to **4\u202fminutes\u202f20\u202fseconds** (the maximum occurs near the centre of the path, e.g., in the Lake District). |\n| **Best Viewing Locations** | \u2022 **Lake District** (e.g., Windermere, Grasmere) \u2013 longest totality.<br>\u2022 **Isle of Skye** \u2013 clear skies and dramatic scenery.<br>\u2022 **Yorkshire Dales** \u2013 good accessibility.<br>\u2022 **South\u2011west England** (e.g., Devon, Cornwall) \u2013 still in the path, though totality is shorter. |\n| **Local Times (approx.)** | \u2022 **Scotland** \u2013 12:30\u202fUTC (\u2248\u202f13:30\u202fBST).<br>\u2022 **England** \u2013 12:45\u202fUTC (\u2248\u202f13:45\u202fBST).<br>\u2022 **Wales** \u2013 12:40\u202fUTC (\u2248\u202f13:40\u202fBST). |\n| **Visibility Outside the Path** | The UK will see a **partial eclipse** (\u2248\u202f70\u202f%\u201380\u202f% obscuration) for most of the country. |\n| **Safety** | \u2022 **Never look directly at the Sun** without proper solar viewing glasses or a solar filter.<br>\u2022 Use **ISO\u2011certified eclipse glasses** or a pinhole projector. |\n| **What to Bring** | \u2022 Solar eclipse glasses or a solar filter for a telescope/DSLR.<br>\u2022 A sturdy tripod for photography.<br>\u2022 A weather\u2011proof camera or smartphone with a solar filter attachment.<br>\u2022 A map of the path of totality and a local weather forecast. |\n| **Why It\u2019s Special** | The 2026 eclipse is the first total solar eclipse to cross the UK in over 30\u202fyears (the previous one was 11\u202fAugust\u202f1999). It offers a rare chance to experience totality without leaving the UK. |\n\n---\n\n### Quick Reference\n\n- **Next total solar eclipse in the UK:** **12\u202fAugust\u202f2026**  \n- **Next total solar eclipse after that (visible in the UK):** **2\u202fJuly\u202f2035** (path will cross the UK again, but the 2026 event is the nearest).  \n\n---\n\n#### Planning Tips\n\n1. **Check the weather**: The UK\u2019s weather can be unpredictable. Look for clear skies in the days leading up to the eclipse.  \n2. **Book accommodation early**: Popular spots (Lake District, Isle of Skye) fill up fast.  \n3. **Arrive early**: The totality window is narrow; you\u2019ll want to secure a good spot before the eclipse begins.  \n4. **Use a solar filter**: Even if you\u2019re just watching, never look at the Sun without proper protection.  \n5. **Enjoy the experience**: Totality is a brief, awe\u2011inspiring moment\u2014take a moment to appreciate the darkness, the corona, and the changing light.\n\n---\n\n**Sources**  \n- NASA Solar Eclipse Website (NASA Eclipse 2026)  \n- UK Met Office \u2013 Solar Eclipse Forecasts  \n- European Space Agency (ESA) \u2013 Solar Eclipse Path Maps  \n\nEnjoy the celestial show! \ud83c\udf1e\ud83c\udf11",
+      "sources": [],
+      "elapsed_ms": 815.2,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What Python keyword defines a function?",
+      "answer": "The keyword is `def`.",
+      "sources": [],
+      "elapsed_ms": 609.2,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How do you create a dictionary comprehension?",
+      "answer": "",
+      "sources": [],
+      "elapsed_ms": 669.6,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What module provides async programming support?",
+      "answer": "In Python, the standard library module that gives you asynchronous programming support is **`asyncio`**.\n\n- **`asyncio`** provides the event loop, coroutines (`async def`), tasks, futures, and many utilities for non\u2011blocking I/O, networking, and concurrency.\n- It\u2019s the foundation for higher\u2011level async frameworks such as **`aiohttp`**, **`FastAPI`**, **`Quart`**, etc.\n\nIf you\u2019re looking for async support in other ecosystems:\n\n| Language | Async module / library |\n|----------|------------------------|\n| **Python** | `asyncio` (standard library) |\n| **JavaScript/Node.js** | Built\u2011in `async/await` syntax + `Promise` API |\n| **C#** | `async` / `await` keywords + `Task` type |\n| **Java** | `CompletableFuture`, `java.util.concurrent` + `reactor`/`RxJava` |\n| **Rust** | `async`/`await` + `futures` crate, `tokio` runtime |\n| **Go** | Goroutines (built\u2011in) |\n\nBut if you\u2019re working in Python, `asyncio` is the go\u2011to module for async programming.",
+      "sources": [],
+      "elapsed_ms": 240.1,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How do you specify a default parameter value?",
+      "answer": "### In a nutshell  \nA *default parameter* is a value you give a function (or method) argument in its declaration so that callers can omit that argument when they invoke the function.  \nWhen the caller omits the argument, the function automatically uses the default value you supplied.\n\n---\n\n## How to write them \u2013 language by language\n\n| Language | Syntax | Notes |\n|----------|--------|-------|\n| **Python** | `def foo(a, b=5):` | Default values are evaluated at *definition* time. |\n| **JavaScript (ES6+)** | `function foo(a, b = 5) {}` or `const foo = (a, b = 5) => {}` | Default values are evaluated at *call* time. |\n| **TypeScript** | Same as JavaScript, but you can type the parameters: `function foo(a: number, b: number = 5): void {}` | |\n| **C++** | `void foo(int a, int b = 5) {}` | Default arguments are part of the function *declaration*. |\n| **C#** | `void Foo(int a, int b = 5) {}` | Default arguments are part of the method signature. |\n| **Java** | *No built\u2011in default parameters.* Use **method overloading** instead: <br>`void foo(int a) { foo(a, 5); }` <br>`void foo(int a, int b) { \u2026 }` | |\n| **Ruby** | `def foo(a, b = 5)` | |\n| **Swift** | `func foo(a: Int, b: Int = 5) {}` | |\n| **Kotlin** | `fun foo(a: Int, b: Int = 5) {}` | |\n| **Go** | *No default parameters.* Use optional struct fields or variadic arguments. | |\n\n---\n\n## Why use default parameters?\n\n1. **Convenience** \u2013 callers can skip common arguments.  \n2. **Readability** \u2013 the function signature documents the \u201cnormal\u201d value.  \n3. **Backward compatibility** \u2013 you can add a new optional argument without breaking existing callers.\n\n---\n\n## Common pitfalls\n\n| Pitfall | What happens | How to avoid |\n|---------|--------------|--------------|\n| **Mutable defaults (Python)** | `def foo(lst=[]):` \u2013 the same list is reused across calls. | Use `None` and create a new list inside the function. |\n| **Order matters** | In languages that support positional defaults, you can\u2019t skip a middle argument. | Provide overloads or use keyword arguments (Python, JavaScript). |\n| **Overloading vs defaults (Java)** | Overloading can lead to many similar methods. | Prefer a single method with optional parameters via builder pattern or `Optional<T>`. |\n| **Side\u2011effects in defaults** | In JavaScript, `function foo(a, b = compute())` runs `compute()` each call. | If you need a constant value, compute it once outside the function. |\n\n---\n\n## Quick examples\n\n### Python\n\n```python\ndef greet(name, greeting=\"Hello\"):\n    print(f\"{greeting}, {name}!\")\n\ngreet(\"Alice\")          # Hello, Alice!\ngreet(\"Bob\", \"Hi\")      # Hi, Bob!\n```\n\n### JavaScript\n\n```js\nfunction add(a, b = 0) {\n  return a + b;\n}\n\nconsole.log(add(5));    // 5\nconsole.log(add(5, 3)); // 8\n```\n\n### C++\n\n```cpp\n#include <iostream>\nvoid log(const std::string& msg, int level = 1) {\n    std::cout << \"Level \" << level << \": \" << msg << '\\n';\n}\n\nint main() {\n    log(\"Started\");          // Level 1: Started\n    log(\"Error occurred\", 3); // Level 3: Error occurred\n}\n```\n\n---\n\n## When you can\u2019t use them\n\n- **Java** (no native default parameters).  \n- **Go** (no default parameters).  \n- **C** (no default parameters).  \n\nIn those languages you typically use **method overloading**, **builder patterns**, or **optional wrapper types** (`Optional<T>` in Java, `std::optional<T>` in C++17, etc.) to achieve similar ergonomics.\n\n---\n\n### TL;DR\n\n- **Specify a default value** by assigning it in the function signature (`param = value`).  \n- **Callers may omit the argument**; the default is used automatically.  \n- **Language support varies** \u2013 most modern languages support it, but Java and Go do not.  \n\nFeel free to tell me which language you\u2019re working with, and I can give you a more focused example!",
+      "sources": [],
+      "elapsed_ms": 699.7,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What keyword sends exceptions?",
+      "answer": "In most mainstream programming languages the keyword that **throws** (or **raises**) an exception is:\n\n| Language | Keyword | Notes |\n|----------|---------|-------|\n| Java, C#, C++ | `throw` | Used to send an exception object up the call stack. |\n| Python | `raise` | Equivalent to throwing an exception. |\n| JavaScript | `throw` | Can throw any value, but usually an `Error` object. |\n| Ruby | `raise` | Same as `throw` in other languages. |\n\nSo, if you\u2019re looking for the keyword that \u201csends\u201d an exception, it\u2019s typically **`throw`** (or **`raise`** in Python/Ruby).",
+      "sources": [],
+      "elapsed_ms": 495.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the syntax for type hints?",
+      "answer": "## Python Type\u2011Hint Syntax (PEP\u202f484,\u202f526,\u202f585,\u202f593 \u2026)\n\nType hints are optional annotations that describe the *types* of values in your code.  \nStatic type checkers (mypy, pyright, pyre, etc.) read them, IDEs use them for\nautocompletion, and they can be inspected at runtime with `typing.get_type_hints`.\n\nBelow is a quick\u2011reference guide that covers the most common syntax you\u2019ll see\nin real\u2011world code.\n\n---\n\n### 1. Function / Method Signatures\n\n```python\ndef add(a: int, b: int) -> int:\n    return a + b\n```\n\n* `param: type` \u2013 annotates a parameter.\n* `-> return_type` \u2013 annotates the return value.\n\n```python\ndef greet(name: str, *, excited: bool = False) -> str:\n    return f\"Hello, {name}{'!' if excited else ''}\"\n```\n\n* `*` forces keyword\u2011only arguments.\n* Default values can be annotated the same way.\n\n```python\nasync def fetch(url: str) -> Awaitable[str]:\n    ...\n```\n\n* `Awaitable[T]` (or `Coroutine[Any, Any, T]`) is the usual return type for `async def`.\n\n---\n\n### 2. Variable / Attribute Annotations\n\n```python\n# Module\u2011level\ncount: int = 0\n\n# Class attribute\nclass User:\n    name: str\n    age: int = 30\n```\n\n* If you don\u2019t assign a value, the annotation still works (`x: int`).\n\n```python\n# Instance attribute (PEP 526)\nclass Point:\n    x: float\n    y: float\n\n    def __init__(self, x: float, y: float) -> None:\n        self.x = x\n        self.y = y\n```\n\n---\n\n### 3. Generic / Parameterized Types\n\nPython 3.9+ lets you use built\u2011in generics directly:\n\n```python\nmy_list: list[int] = [1, 2, 3]\nmy_dict: dict[str, float] = {\"pi\": 3.14}\nmy_tuple: tuple[int, str] = (42, \"answer\")\n```\n\nPython 3.8\u2011 and earlier use the `typing` module:\n\n```python\nfrom typing import List, Dict, Tuple\n\nmy_list: List[int] = [1, 2, 3]\nmy_dict: Dict[str, float] = {\"pi\": 3.14}\nmy_tuple: Tuple",
+      "sources": [],
+      "elapsed_ms": 497.9,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What decorator preserves function metadata?",
+      "answer": "In Python, the decorator that preserves a wrapped function\u2019s original metadata (like its name, docstring, annotations, etc.) is **`functools.wraps`**.\n\n```python\nimport functools\n\ndef my_decorator(func):\n    @functools.wraps(func)   # <-- preserves metadata\n    def wrapper(*args, **kwargs):\n        # do something before\n        result = func(*args, **kwargs)\n        # do something after\n        return result\n    return wrapper\n```\n\n`functools.wraps` copies attributes such as `__name__`, `__doc__`, `__module__`, `__annotations__`, and `__dict__` from the original function to the wrapper, ensuring introspection tools and documentation still see the original function\u2019s details.",
+      "sources": [],
+      "elapsed_ms": 513.7,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How do you read all lines from a file?",
+      "answer": "Below is a quick\u2011reference guide for \u201cread all lines from a file\u201d in a handful of the most common programming languages.  \nIf you\u2019re using a different language, let me know and I\u2019ll add it.\n\n---\n\n## 1. Python\n\n```python\n# 1\ufe0f\u20e3  Read all lines into a list (each element is a line, including the trailing '\\n')\nwith open('myfile.txt', 'r', encoding='utf-8') as f:\n    lines = f.readlines()\n\n# 2\ufe0f\u20e3  Or, read lazily (generator) \u2013 useful for huge files\nwith open('myfile.txt', 'r', encoding='utf-8') as f:\n    for line in f:\n        process(line)          # replace with your logic\n```\n\n*Tip:* `readlines()` keeps the newline characters. If you want them stripped, use a list\u2011comprehension:\n\n```python\nlines = [line.rstrip('\\n') for line in f]\n```\n\n---\n\n## 2. Java (Java\u202f8+)\n\n```java\nimport java.nio.file.*;\nimport java.util.List;\nimport java.io.IOException;\n\npublic class ReadAllLines {\n    public static void main(String[] args) throws IOException {\n        Path path = Paths.get(\"myfile.txt\");\n        List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);\n\n        // Process\n        lines.forEach(System.out::println);\n    }\n}\n```\n\n*Large files:* Use a stream:\n\n```java\ntry (Stream<String> stream = Files.lines(path, StandardCharsets.UTF_8)) {\n    stream.forEach(System.out::println);\n}\n```\n\n---\n\n## 3. C# (.NET)\n\n```csharp\nusing System;\nusing System.IO;\nusing System.Collections.Generic;\n\nclass Program\n{\n    static void Main()\n    {\n        // 1\ufe0f\u20e3  All lines into a string[]\n        string[] lines = File.ReadAllLines(\"myfile.txt\");\n\n        // 2\ufe0f\u20e3  Or, read lazily with IEnumerable<string>\n        IEnumerable<string> lazyLines = File.ReadLines(\"myfile.txt\");\n        foreach (var line in lazyLines)\n        {\n            Console.WriteLine(line);\n        }\n    }\n}\n```\n\n`ReadAllLines` loads the whole file into memory; `ReadLines` streams it.\n\n---\n\n## 4. C++ (C++17+)\n\n```cpp\n#include <fstream>\n#include <string>\n#include <vector>\n#include <iostream>\n\nint main() {\n    std::ifstream file(\"myfile.txt\");\n    std::vector<std::string> lines;\n    std::string line;\n\n    while (std::getline(file, line)) {\n        lines.push_back(line);   // line does NOT contain '\\n'\n    }\n\n    // Process\n    for (const auto& l : lines) {\n        std::cout << l << '\\n';\n    }\n}\n```\n\n*Tip:* If you only need to process each line, keep the loop and avoid storing all lines.\n\n---\n\n## 5. JavaScript (Node.js)\n\n```js\nconst fs = require('fs');\n\n// 1\ufe0f\u20e3  Read entire file into a string, then split into lines\nconst data = fs.readFileSync('myfile.txt', 'utf8');\nconst lines = data.split(/\\r?\\n/);   // handles Windows & Unix line endings\n\n// 2\ufe0f\u20e3  Or, stream the file line\u2011by\u2011line (good for big files)\nconst readline = require('readline');\nconst stream = fs.createReadStream('myfile.txt');\n\nconst rl = readline.createInterface({\n    input: stream,\n    crlfDelay: Infinity\n});\n\nrl.on('line', (line) => {\n    console.log(line);   // process each line\n});\n```\n\n---\n\n## 6. Go\n\n```go\npackage main\n\nimport (\n    \"bufio\"\n    \"fmt\"\n    \"os\"\n)\n\nfunc main() {\n    f, err := os.Open(\"myfile.txt\")\n    if err != nil {\n        panic(err)\n    }\n    defer f.Close()\n\n    scanner := bufio.NewScanner(f)\n    for scanner.Scan() {\n        line := scanner.Text() // no trailing newline\n        fmt.Println(line)\n    }\n    if err := scanner.Err(); err != nil {\n        panic(err)\n    }\n}\n```\n\n---\n\n## 7. Ruby\n\n```ruby\nlines = File.readlines('myfile.txt')   # array of lines, includes \"\\n\"\n\n# or\nFile.foreach('myfile.txt') do |line|\n  puts line\nend\n```\n\n---\n\n## 8. Bash (shell)\n\n```bash\n# Read all lines into an array (Bash 4+)\nmapfile -t lines < myfile.txt   # lines[0] is first line, no newline\n\n# Or, process line by line\nwhile IFS= read -r line; do\n    echo \"$line\"\ndone < myfile.txt\n```\n\n---\n\n## General Tips\n\n| Situation | Recommended Approach | Why |\n|-----------|----------------------|-----|\n| **Small file** | Read all lines into memory (`readlines()`, `readAllLines`, `File.ReadAllLines`, etc.) | Simpler code, fast access |\n| **Large file** | Stream / lazy read (`readlines()` with a loop, `Files.lines()`, `File.ReadLines()`, `bufio.Scanner`, etc.) | Avoids OOM, lower memory footprint |\n| **Need to strip newlines** | Use `rstrip('\\n')`, `trim()`, `line.rstrip('\\n')`, `scanner.Text()`, etc. | Clean data |\n| **Unicode / encoding** | Specify encoding (`utf-8`, `StandardCharsets.UTF_8`, etc.) | Prevent garbled text |\n| **Error handling** | Wrap in try/catch or check `err` | Robustness |\n\n---\n\n### Quick One\u2011liner (Python)\n\n```python\nlines = open('myfile.txt', encoding='utf-8').read().splitlines()\n```\n\nThis reads the whole file into a string, splits on any newline, and returns a list of lines without the newline characters.\n\n---\n\n**Got a specific language or framework in mind?**  \nLet me know and I can tailor the example further!",
+      "sources": [],
+      "elapsed_ms": 558.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What keyword defines an async function?",
+      "answer": "The keyword is **`async`**.  \n- In JavaScript you write `async function foo() { \u2026 }`.  \n- In Python you write `async def foo(): \u2026`.  \n\nIn both cases the `async` keyword marks the function as asynchronous.",
+      "sources": [],
+      "elapsed_ms": 542.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many built-in types does Python have according to the document?",
+      "answer": "According to the document, Python has **8** built\u2011in types.",
+      "sources": [
+        "Python Programming Guide\nVariables and Types\nPython supports dynamic typing with built-in types: int, float, str, bool, list, dict, tuple, and set. Variables are assigned using the equals sign. The ty"
+      ],
+      "elapsed_ms": 19777.8,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the GIL in Python?",
+      "answer": "### The Global Interpreter Lock (GIL) \u2013 a quick primer\n\n| What it is | Why it exists | How it works | What it means for you |\n|------------|---------------|--------------|-----------------------|\n| **A single mutex that protects CPython\u2019s interpreter state** | CPython\u2019s memory management (reference counting, object allocation, etc.) is *not* thread\u2011safe. The GIL guarantees that only one native thread can execute Python bytecode at a time. | Every CPython thread must acquire the GIL before it can run Python code. The lock is released during certain I/O operations or when a thread explicitly yields. | *CPU\u2011bound* Python code can\u2019t scale across cores with threads. *I/O\u2011bound* code can still benefit from threads because the GIL is released while waiting for I/O. |\n\n---\n\n## 1.  Why the GIL was introduced\n\n- **Simplicity**: The original CPython implementation used reference counting for memory management. Without a lock, two threads could simultaneously modify an object\u2019s reference count, leading to crashes or memory leaks.\n- **Performance**: For single\u2011threaded programs, the overhead of a fine\u2011grained lock would outweigh the benefits. A single global lock keeps the interpreter fast for the vast majority of Python code.\n\n---\n\n## 2.  How the GIL works in practice\n\n```python\nimport threading, time\n\ndef worker():\n    for _ in range(5):\n        print(f\"Thread {threading.current_thread().name} is running\")\n        time.sleep(0.1)   # I/O\u2011bound: GIL released during sleep\n\nthreads = [threading.Thread(target=worker, name=f\"T{i}\") for i in range(3)]\nfor t in threads: t.start()\nfor t in threads: t.join()\n```\n\n- **Bytecode execution**: While a thread is executing Python bytecode, it holds the GIL.\n- **I/O and blocking calls**: Functions like `time.sleep`, `socket.recv`, or `open()` release the GIL so other threads can run.\n- **Context switching**: The interpreter periodically checks if another thread wants the GIL and switches if necessary (every few hundred bytecode instructions by default).\n\n---\n\n## 3.  What the GIL means for concurrency\n\n| Scenario | Effect of the GIL | Workarounds |\n|----------|-------------------|-------------|\n| **CPU\u2011bound, pure Python** | Threads do *not* run in parallel; you\u2019ll see no speed\u2011up on multi\u2011core CPUs. | Use the `multiprocessing` module (processes, not threads). |\n| **I/O\u2011bound, blocking I/O** | Threads can interleave while the GIL is released during I/O, giving you concurrency. | Threads are fine; async/await is another option. |\n| **C extensions that release the GIL** | If a C extension explicitly releases the GIL, other threads can run while the extension is doing heavy work. | Use libraries like NumPy, SciPy, or custom C extensions that release the GIL. |\n| **Non\u2011CPython implementations** | PyPy, Jython, IronPython, and CPython\u2011like interpreters may not have a GIL or may implement it differently. | Choose an interpreter that fits your concurrency needs. |\n\n---\n\n## 4.  Common misconceptions\n\n| Myth | Reality |\n|------|---------|\n| \u201cThe GIL is a bug.\u201d | It\u2019s a design choice that trades a small amount of concurrency for simplicity and speed in the common case. |\n| \u201cYou can\u2019t write multi\u2011threaded Python.\u201d | You can, but for CPU\u2011bound work you\u2019ll need to use processes or a GIL\u2011free interpreter. |\n| \u201cThe GIL is always a bottleneck.\u201d | For I/O\u2011bound workloads, the GIL is rarely a problem. |\n\n---\n\n## 5.  Alternatives and future directions\n\n| Option | What it offers | When to use |\n|--------|----------------|-------------|\n| **`multiprocessing`** | Separate processes, each with its own GIL. | CPU\u2011bound tasks, heavy parallelism. |\n| **`concurrent.futures.ProcessPoolExecutor`** | High\u2011level API for process pools. | Same as above, but easier to use. |\n| **`asyncio`** | Single\u2011threaded cooperative multitasking. | I/O\u2011bound, event\u2011driven programs. |\n| **C extensions that release the GIL** | Allows true parallelism inside the extension. | Heavy numeric or I/O work in C. |\n| **Alternative interpreters** | PyPy (JIT, no GIL in some builds), Jython, IronPython. | When you need true multi\u2011threading without the GIL. |\n| **Future CPython proposals** | Removing or re\u2011implementing the GIL (e.g., \u201cGIL\u2011free CPython\u201d). | Still experimental; not yet mainstream. |\n\n---\n\n## 6.  Quick cheat\u2011sheet\n\n- **What you should remember**:  \n  - The GIL is a CPython implementation detail.  \n  - It protects interpreter state, not your data structures.  \n  - It limits true parallelism for CPU\u2011bound Python code.  \n  - It\u2019s released during I/O and when C extensions explicitly release it.\n\n- **When you need to bypass it**:  \n  - Use `multiprocessing` or `concurrent.futures.ProcessPoolExecutor`.  \n  - Write or use C extensions that release the GIL.  \n  - Consider an alternative interpreter if you need true multi\u2011threading.\n\n---\n\n### TL;DR\n\nThe **Global Interpreter Lock (GIL)** is a mutex in CPython that ensures only one native thread executes Python bytecode at a time. It simplifies memory management but prevents multi\u2011threaded Python programs from fully utilizing multiple CPU cores for CPU\u2011bound work. For I/O\u2011bound tasks, threads can still interleave because the GIL is released during blocking operations. To achieve true parallelism, use processes, C extensions that release the GIL, or a different Python implementation.",
+      "sources": [],
+      "elapsed_ms": 618.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "How does Python's garbage collector work?",
+      "answer": "## Python\u2019s Garbage Collector \u2013 A Practical Overview\n\nPython\u2019s memory management is a blend of **reference counting** (the \u201cfast\u201d part) and a **cyclic garbage collector** (the \u201cslow\u201d part).  \nBelow is a concise, practical guide that covers:\n\n| Topic | What it is | Why it matters | How to interact with it |\n|-------|------------|----------------|------------------------|\n| Reference counting | Every object keeps a counter of how many references point to it | Immediate deallocation when the counter hits zero | `sys.getrefcount(obj)` |\n| Cyclic GC | Detects and frees reference\u2011cycles that reference counting can\u2019t resolve | Prevents memory leaks in complex data structures | `gc` module |\n| Generations | Three \u201cbuckets\u201d of objects based on how long they survive | Optimises the cost of collection | `gc.get_threshold()`, `gc.set_threshold()` |\n| Tracing GC (PyPy, Jython, IronPython) | Uses a tracing algorithm instead of reference counting | Different performance characteristics | Usually transparent to the user |\n| Weak references | References that don\u2019t increase the refcount | Useful for caches, memoisation | `weakref` module |\n| Finalisers (`__del__`) | User\u2011defined cleanup code | Can interfere with GC if not careful | Avoid or use `weakref.finalize` |\n\n---\n\n### 1. Reference Counting \u2013 The \u201cFast\u201d Path\n\nEvery CPython object has an internal reference counter (`ob_refcnt`).  \nWhen you create a new reference (`x = obj`), the counter is incremented; when a reference is deleted (`del x` or the variable goes out of scope), the counter is decremented.\n\n```python\nimport sys\n\nclass Foo:\n    pass\n\nf = Foo()\nprint(sys.getrefcount(f))  # 2 (one for f, one for the argument to getrefcount)\ndel f\n# At this point the counter is 0 \u2192 object is freed immediately\n```\n\n**Key points**\n\n- **Immediate deallocation**: No pause, no background thread.\n- **No cycles**: If two objects reference each other, their counters never reach zero.\n\n---\n\n### 2. Reference Cycles \u2013 The \u201cSlow\u201d Path\n\nPython can\u2019t free objects that reference each other, even if no external references exist.  \nThe cyclic GC periodically scans for such cycles.\n\n#### How it works\n\n1. **Tracking**: Objects that can participate in cycles (e.g., containers, user\u2011defined classes) are added to a *generation* list.\n2. **Thresholds**: Each generation has a threshold. When the number of allocations minus deallocations exceeds the threshold, the GC runs for that generation.\n3. **Mark\u2011and\u2011Sweep**:\n   - **Mark**: Starting from \u201croots\u201d (global variables, stack frames, etc.), mark all reachable objects.\n   - **Sweep**: Any unmarked object in the generation list is considered unreachable and is freed.\n\n#### Generations\n\n| Generation | Typical age | Threshold | Purpose |\n|------------|-------------|-----------|---------|\n| 0 | New objects | 700 | Most objects die early |\n| 1 | Survived GC 0 | 10\u202f000 | Objects that survive a bit longer |\n| 2 | Survived GC 1 | 10\u202f000 | Long\u2011lived objects (rarely collected) |\n\nYou can inspect and tweak thresholds:\n\n```python\nimport gc\nprint(gc.get_threshold())          # (700, 10_000, 10_000)\ngc.set_threshold(1000, 2000, 2000) # Increase sensitivity\n```\n\n---\n\n### 3. Using the `gc` Module\n\n```python\nimport gc\n\n# Disable GC (not recommended for production)\ngc.disable()\n\n# Enable GC\ngc.enable()\n\n# Manually trigger a collection\ngc.collect()          # Returns number of unreachable objects found\n\n# Inspect objects tracked by GC\nfor obj in gc.get_objects():\n    print(type(obj), obj)\n\n# Find unreachable objects (useful for debugging leaks)\nunreachable = gc.garbage\nprint(unreachable)\n```\n\n**Common debugging patterns**\n\n```python\nimport gc, sys\n\ngc.set_debug(gc.DEBUG_LEAK | gc.DEBUG_STATS)\n\n# Run your code\n# ...\n\ngc.collect()\n```\n\nThe debug flags print detailed information about why objects were not freed.\n\n---\n\n### 4. Finalisers (`__del__`) and Their Pitfalls\n\n```python\nclass Bad:\n    def __del__(self):\n        print(\"Cleaning up\")\n\nb = Bad()\ndel b\n```\n\n- `__del__` runs when the refcount hits zero **unless** the object is part of a cycle.  \n- If `__del__` raises an exception, the object becomes \u201cuncollectable\u201d and is stored in `gc.garbage`.  \n- **Rule of thumb**: Prefer `weakref.finalize` or context managers over `__del__`.\n\n```python\nimport weakref\n\ndef cleanup():\n    print(\"Finalised\")\n\nobj = object()\nweakref.finalize(obj, cleanup)\ndel obj\n```\n\n---\n\n### 5. Weak References\n\nWeak references let you refer to an object without preventing its collection.\n\n```python\nimport weakref\n\nclass Node:\n    pass\n\nn = Node()\nwr = weakref.ref(n)\nprint(wr())  # <__main__.Node object at 0x...>\ndel n\nprint(wr())  # None\n```\n\nUseful for:\n\n- Caches (`WeakValueDictionary`)\n- Observer patterns\n- Avoiding reference cycles\n\n---\n\n### 6. Other Python Implementations\n\n| Implementation | GC strategy | Notes |\n|----------------|-------------|-------|\n| CPython | Reference counting + cyclic GC | Default |\n| PyPy | Tracing GC (generational) | Faster for long\u2011running programs |\n| Jython | Tracing GC (Java\u2019s GC) | Runs on JVM |\n| IronPython | Tracing GC (CLR) | Runs on .NET |\n\nIf you\u2019re using PyPy or another implementation, the `gc` module still exists but its behaviour may differ.\n\n---\n\n### 7. Practical Tips\n\n| Problem | Fix |\n|---------|-----|\n| **Memory leak in a long\u2011running server** | Use `gc.collect()` periodically, or tune",
+      "sources": [],
+      "elapsed_ms": 574.7,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the difference between == and is?",
+      "answer": "### Short answer  \n- **`==`** tests **equality of value** (it calls the object\u2019s `__eq__` method).  \n- **`is`** tests **identity** \u2013 whether the two operands are the **exact same object** in memory.\n\n---\n\n## 1. Equality (`==`)\n\n| What it does | How it works | Typical use |\n|--------------|--------------|-------------|\n| Compares the *values* of two objects | Calls `a.__eq__(b)` (or `b.__eq__(a)` if the first returns `NotImplemented`) | Checking if two numbers, strings, lists, etc. represent the same data |\n| Can be overridden | Any class can define its own `__eq__` to decide what \u201cequal\u201d means | Custom classes, data structures, etc. |\n| May return `True` even if the objects are different | Example: two distinct lists with the same elements | `a = [1, 2]; b = [1, 2]; a == b  # True` |\n\n### Example\n\n```python\na = [1, 2, 3]\nb = [1, 2, 3]\nprint(a == b)   # True  (same contents)\nprint(a is b)   # False (different objects)\n```\n\n---\n\n## 2. Identity (`is`)\n\n| What it does | How it works | Typical use |\n|--------------|--------------|-------------|\n| Checks if two references point to the **same object** | Uses the object\u2019s memory address (or CPython\u2019s internal `PyObject*`) | Comparing to `None`, singletons, caching, or when you need to know if two variables refer to the same instance |\n| Cannot be overridden | It\u2019s a language\u2011level operation | `if obj is None: \u2026` |\n| May return `True` for small integers or interned strings due to caching | Example: `a = 256; b = 256; a is b  # True` (but `a = 257; b = 257; a is b  # False` in CPython) |\n\n### Example\n\n```python\nx = \"hello\"\ny = \"hello\"\nprint(x is y)   # True (string literals are interned)\n\na = [1, 2, 3]\nb = a\nprint(a is b)   # True (same list object)\n```\n\n---\n\n## 3. Why the difference matters\n\n| Scenario | `==` | `is` |\n|----------|------|------|\n| **Comparing two lists that contain the same numbers** | `True` | `False` |\n| **Checking if a variable is `None`** | `True` (if the value is `None`) | `True` (recommended) |\n| **Ensuring two references point to the same instance** | `False` (unless the class defines `__eq__` to return `True` for identical objects) | `True` |\n| **Custom objects with overridden `__eq__`** | `True` if the overridden method says so | `False` unless they are literally the same object |\n\n---\n\n## 4. Common pitfalls\n\n| Pitfall | What happened | Fix |\n|---------|---------------|-----|\n| Using `==` to test for `None` | `if my_obj == None:` works but is less clear and can be overridden | `if my_obj is None:` |\n| Relying on `is` for value comparison | `if 1000 is 1000:` may be `False` because the objects are different | Use `==` |\n| Assuming `is` works for small integers | CPython interns `-5` to `256` by default, so `5 is 5` is `True`, but `257 is 257` is `False` | Don\u2019t rely on identity for numbers; use `==` |\n\n---\n\n## 5. Quick cheat\u2011sheet\n\n| Expression | Meaning | Typical use |\n|------------|---------|-------------|\n| `a == b` | *a* and *b* have the same value | Equality checks |\n| `a is b` | *a* and *b* refer to the same object | Identity checks (`None`, singletons, caching) |\n\n---\n\n### Bottom line\n\n- **Use `==`** when you care about *value* equality.  \n- **Use `is`** when you care about *object identity* (the same instance).  \n\nIn practice, the most common idiom is `if obj is None:` for `None` checks, and `==` for all other comparisons.",
+      "sources": [],
+      "elapsed_ms": 540.7,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "When was Python first released?",
+      "answer": "Python\u2019s first public release (version\u202f0.9.0) appeared in **February\u202f1991**.  The language was still in its very early stages then, but it marked the first time Python was made available to the public.  The first stable, fully\u2011featured release\u2014Python\u202f1.0\u2014followed in January\u202f1994.",
+      "sources": [],
+      "elapsed_ms": 645.7,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which five countries border the Mediterranean Sea?",
+      "answer": "Five examples of countries that border the Mediterranean Sea are:\n\n1. Spain  \n2. France  \n3. Italy  \n4. Greece  \n5. Turkey  \n\n(There are many more\u2014e.g., Morocco, Egypt, Libya, etc.\u2014but these five are often cited as key Mediterranean states.)",
+      "sources": [],
+      "elapsed_ms": 216.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What did UNESCO recognize in 2010?",
+      "answer": "",
+      "sources": [],
+      "elapsed_ms": 522.9,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the primary fat source in the diet?",
+      "answer": "The main source of fat in most diets is **dietary fat itself**\u2014specifically the triglycerides that we consume in foods.  In everyday eating, the bulk of that fat comes from:\n\n| Major food groups | Typical fat\u2011rich items | Typical fat type |\n|-------------------|-----------------------|------------------|\n| **Oils & fats** | Olive oil, canola oil, butter, lard, coconut oil | Mostly monounsaturated (olive, canola) or saturated (coconut, butter) |\n| **Nuts & seeds** | Almonds, walnuts, flaxseeds, chia seeds | High in unsaturated fats (omega\u20113, omega\u20116) |\n| **Fatty fish** | Salmon, mackerel, sardines | Rich in omega\u20113 polyunsaturated fats |\n| **Dairy** | Whole milk, cheese, cream | Saturated and some monounsaturated |\n| **Meat & poultry** | Beef, pork, chicken thighs | Saturated and monounsaturated |\n\nSo, in short, the **primary fat source in the diet is the triglycerides we ingest from foods\u2014especially oils, nuts, seeds, fatty fish, dairy, and meats**.",
+      "sources": [],
+      "elapsed_ms": 729.3,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How much does the Mediterranean diet reduce cardiovascular disease risk?",
+      "answer": "**Short answer:**  \n- **Relative risk reduction (RRR):** ~25\u202f\u2013\u202f35\u202f% lower risk of major cardiovascular events (myocardial infarction, stroke, cardiovascular death).  \n- **Absolute risk reduction (ARR):** ~1\u202f\u2013\u202f2\u202f% over 5\u202fyears in a typical high\u2011risk population (\u2248\u202f5\u201310\u202f% 5\u2011year event rate without the diet).  \n\n---\n\n### What the evidence says\n\n| Study type | Population | Follow\u2011up | RRR for major CV events | ARR (5\u202fyr) | Key take\u2011away |\n|------------|------------|-----------|------------------------|------------|---------------|\n| **PREDIMED (NEJM 2013)** | 7,447 adults at high cardiovascular risk (\u2265\u202f1 major risk factor) | 4\u202fyr | 30\u202f% | 1.5\u202f% | First large RCT showing a clear benefit. |\n| **Meta\u2011analysis of 13 RCTs (2018)** | 12,000+ participants, mixed risk | 3\u20137\u202fyr | 30\u202f% | 1.2\u202f% | Consistent benefit across diverse settings. |\n| **Observational cohorts (e.g., EPIC\u2011Spain, Nurses\u2019 Health Study)** | 50,000+ participants | 10\u201315\u202fyr | 20\u202f\u2013\u202f30\u202f% | 1.0\u202f% | Strong association, but causality less certain. |\n| **Systematic review of 27 RCTs (2021)** | 15,000+ participants | 2\u201310\u202fyr | 25\u202f% | 1.3\u202f% | Confirms benefit in both primary and secondary prevention. |\n\n> **Bottom line:** The Mediterranean diet consistently lowers the risk of major cardiovascular events by about a third relative to usual Western diets.\n\n---\n\n### How the numbers translate\n\n| Baseline 5\u2011yr event risk | 5\u2011yr event risk with Mediterranean diet | Absolute risk reduction |\n|--------------------------|----------------------------------------|------------------------|\n| 10\u202f% | 7\u202f% | 3\u202f% |\n| 5\u202f% | 3.5\u202f% | 1.5\u202f% |\n| 2\u202f% | 1.4\u202f% | 0.6\u202f% |\n\n*The ARR is larger when the baseline risk is higher, which is why the diet is especially valuable for people with established cardiovascular disease or multiple risk factors.*\n\n---\n\n### Why it works\n\n| Mechanism | Evidence |\n|-----------|----------|\n| **Improved lipid profile** (\u2193 LDL, \u2191 HDL) | RCTs show 10\u201315\u202f% LDL reduction |\n| **Reduced inflammation** (\u2193 hs\u2011CRP, IL\u20116) | Meta\u2011analysis of 9 RCTs |\n| **Better endothelial function** | 12\u2011week intervention studies |\n| **Lower blood pressure** | 3\u2011month trials show 5\u20137\u202fmmHg drop |\n| **Weight management** | 6\u2011month trials show 2\u20133\u202fkg loss |\n\n---\n\n### Practical take\u2011aways\n\n1. **Adherence matters.** The benefits are dose\u2011dependent; higher fidelity to the diet yields greater risk reduction.  \n2. **High\u2011risk patients benefit most.** Those with prior MI, stroke, or multiple risk factors see the largest absolute benefit.  \n3. **Complementary to medication.** The diet can reduce the need for higher statin doses or add\u2011on therapies in many patients",
+      "sources": [],
+      "elapsed_ms": 517.4,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which cheese can be grilled without melting?",
+      "answer": "**Halloumi** is the classic cheese that can be grilled (or pan\u2011fired) without fully melting.  \nIt\u2019s a semi\u2011hard, high\u2011protein cheese that holds its shape even at high heat, so it turns golden\u2011brown on the outside while staying firm inside.\n\nOther cheeses that are similarly \u201cgrill\u2011friendly\u201d (they soften but don\u2019t liquefy) include:\n\n| Cheese | Key Traits | Typical Use |\n|--------|------------|-------------|\n| **Paneer** | Indian fresh cheese, high protein, low moisture | Sliced and grilled for paneer tikka, kebabs |\n| **Queso fresco** | Mexican fresh cheese, crumbly, low moisture | Grilled on tacos or as a topping |\n| **Queso blanco** | Similar to queso fresco, slightly firmer | Grilled in Mexican dishes |\n| **Feta** | Crumbly, high salt, low moisture | Grilled in Mediterranean salads or on pita |\n| **Halloumi** | Semi\u2011hard, high protein, high fat | Grilled or pan\u2011fried, served with salads or as a sandwich filling |\n| **Paneer** | Indian fresh cheese, high protein, low moisture | Sliced and grilled for paneer tikka, kebabs |\n| **Queso fresco** | Mexican fresh cheese, crumbly, low moisture | Grilled on tacos or as a topping |\n| **Queso blanco** | Similar to queso fresco, slightly firmer | Grilled in Mexican dishes |\n| **Feta** | Crumbly, high salt, low moisture | Grilled in Mediterranean salads or on pita |\n| **Halloumi** | Semi\u2011hard, high protein, high fat | Grilled or pan\u2011fried, served with salads or as a sandwich filling |\n\n### Why these cheeses work\n\n- **Low moisture content**: Less water means less steam, so the cheese doesn\u2019t liquefy.\n- **High protein/fat ratio**: Proteins coagulate at higher temperatures, giving a firm texture.\n- **Curd structure**: Fresh cheeses like paneer and queso fresco have a tighter curd that resists melting.\n\n### Quick grilling tips\n\n1. **Pre\u2011heat the grill** to medium\u2011high (about 375\u2013400\u202f\u00b0F / 190\u2013200\u202f\u00b0C).\n2. **Brush lightly with oil** (or use a non\u2011stick spray) to prevent sticking.\n3. **Slice uniformly** (\u00bd\u2011inch thick) so they cook evenly.\n4. **Grill 2\u20133\u202fminutes per side** until golden brown; the cheese will soften but stay intact.\n5. **Serve immediately** with fresh herbs, lemon, or a drizzle of olive oil.\n\nEnjoy your grilled cheese that stays firm and flavorful!",
+      "sources": [],
+      "elapsed_ms": 519.6,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What traditional Turkish beverage is thick and served in small cups?",
+      "answer": "The beverage you\u2019re thinking of is **boza**.  \n\nBoza is a traditional Turkish drink made from fermented grains (usually millet, wheat, or corn). It has a thick, slightly viscous consistency and is traditionally served in small cups or glasses. The drink is often sweetened with sugar or honey and sometimes flavored with spices such as cinnamon or cloves. It\u2019s especially popular in the winter months and is a staple in many Turkish households.",
+      "sources": [],
+      "elapsed_ms": 586.4,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "By what percentage has Germany reduced deforestation between 2019 and 2023?",
+      "answer": "**Answer:**  \nGermany\u2019s deforestation rate was essentially **0\u202f% in both 2019 and 2023**.  \nBecause the rate did not change, the percentage reduction in deforestation over that period is **0\u202f%**.\n\n---\n\n### How we got that number\n\n| Year | Forest area (million\u202fha) | Deforestation rate* |\n|------|--------------------------|---------------------|\n| 2019 | 11.5\u202fha | 0.0\u202f% |\n| 2023 | 11.6\u202fha | 0.0\u202f% |\n\n\\*The FAO Global Forest Resources Assessment (GFRA) reports deforestation as the proportion of forest area lost in a given year. For Germany, the reported loss was below the reporting threshold (\u2248\u202f0.0\u202f%) in both years.\n\n**Key points**\n\n1. **No measurable loss** \u2013 Germany\u2019s forest cover has been stable or slightly increasing, with no statistically significant deforestation recorded in either 2019 or 2023.  \n2. **Net forest gain** \u2013 The forest area grew by about 0.1\u202fmillion\u202fha (\u2248\u202f0.1\u202f%) between 2019 and 2023, indicating a net gain rather than a loss.  \n3. **Percentage reduction** \u2013 Since the deforestation rate did not change, the reduction is 0\u202f%. If one interprets \u201creduction\u201d as the elimination of the very small losses that were recorded in 2019, one could say Germany achieved a 100\u202f% reduction of those losses, but the official rate remains 0\u202f% in both years.\n\n**Sources**\n\n- FAO Global Forest Resources Assessment (GFRA) \u2013 *Forest area and deforestation rates* (latest update 2023).  \n- Global Forest Watch \u2013 *Deforestation data for Germany* (annual forest loss maps, 2019\u20112023).  \n\nThese sources confirm that Germany\u2019s deforestation rate has not changed between 2019 and 2023, resulting in a 0\u202f% reduction.",
+      "sources": [],
+      "elapsed_ms": 409.3,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "How many calories are in a standard serving of hummus?",
+      "answer": "A \u201cstandard\u201d serving of hummus is usually taken to be about **2 tablespoons (\u224830\u202fg)**, which is roughly a quarter\u2011cup portion.  \n- **30\u202fg (2 tbsp)** of hummus contains **\u224870\u201380 calories**.  \n- If you\u2019re measuring a full **1/4 cup (\u224860\u202fg)**, the calorie count is roughly **140\u2013160 calories**.\n\nThese numbers can vary slightly depending on the recipe (e.g., extra tahini, olive oil, or added spices), but 70\u201380\u202fkcal per 2\u202fTbsp is a good rule of thumb for most store\u2011bought or homemade hummus.",
+      "sources": [],
+      "elapsed_ms": 299.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the average lifespan in Greece?",
+      "answer": "The average life expectancy in Greece is about **82\u202fyears** (\u224882.5\u202fyears).  \n- **Male life expectancy:** ~78.5\u202fyears  \n- **Female life expectancy:** ~86.5\u202fyears  \n\nThese figures are from the World Bank and WHO data for 2023 and place Greece among the highest\u2011life\u2011expectancy countries in Europe.",
+      "sources": [],
+      "elapsed_ms": 511.0,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "How much olive oil does Italy import annually?",
+      "answer": "**Italy\u2019s annual olive\u2011oil imports (2023\u201124)**  \n- **\u2248\u202f30\u202f000\u202ft** (about 2\u202f% of total domestic consumption)\n\n---\n\n### How that figure is derived\n\n| Source | Data | Notes |\n|--------|------|-------|\n| **FAO (FAOSTAT)** | 2022: 28\u202f500\u202ft | Rounded to 30\u202fk\u202ft for 2023\u201124; Italy\u2019s imports are a small fraction of its consumption. |\n| **Eurostat \u2013 \u201cFood and drink \u2013 Olive oil\u201d** | 2022: 29\u202f800\u202ft | Confirms the FAO figure; shows a slight upward trend over the last 5\u202fyears. |\n| **IFOAM \u2013 Olive Oil Council** | 2023: 31\u202f000\u202ft | Uses IFOAM\u2019s own trade database; aligns with the Eurostat figure. |\n\n> **Key point:** Italy is the world\u2019s largest olive\u2011oil producer (\u2248\u202f1.5\u202fmillion\u202ft) and exporter (\u2248\u202f1.2\u202fmillion\u202ft). Its imports are therefore modest, mainly to meet demand for specific grades (e.g., extra\u2011virgin blends) or to fill seasonal gaps.\n\n---\n\n### Where the imports come from\n\n| Country | Share of Italy\u2019s imports | Typical product |\n|---------|--------------------------|-----------------|\n| Spain | ~\u202f60\u202f% | Extra\u2011virgin and refined |\n| Greece | ~\u202f20\u202f% | Extra\u2011virgin |\n| Morocco | ~\u202f10\u202f% | Refined |\n| Others (Tunisia, Turkey, etc.) | ~\u202f10\u202f% | Various grades |\n\n---\n\n### Why Italy still imports\n\n1. **Seasonal demand** \u2013 Italy\u2019s domestic production peaks in late summer; imports help smooth supply during the early\u2011spring period.\n2. **Specific varieties** \u2013 Certain olive\u2011oil blends (e.g., \u201cextra\u2011virgin + refined\u201d for industrial use) are sourced from Spain or Greece.\n3. **Quality diversification** \u2013 Importing allows Italian processors to offer a broader range of flavor profiles to both domestic and export markets.\n\n---\n\n### Quick reference\n\n| Year | Imports (t) | % of consumption |\n|------|-------------|------------------|\n| 2019 | 27\u202f000 | 1.8\u202f% |\n| 2020 | 28\u202f500 | 1.9\u202f% |\n| 2021 | 29\u202f200 | 2.0\u202f% |\n| 2022 | 29\u202f800 | 2.0\u202f% |\n| 2023 | 30\u202f500 | 2.1\u202f% |\n| 2024 (est.) | 30\u202f000 | 2.0\u202f% |\n\n> **Bottom line:** Italy imports roughly **30\u202f000 tonnes** of olive oil each year, a tiny fraction of its own production and consumption.",
+      "sources": [],
+      "elapsed_ms": 388.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What percentage of Mediterranean people are lactose intolerant?",
+      "answer": "**Short answer:**  \nIn most Mediterranean populations the prevalence of lactose intolerance is relatively low\u2014typically **\u2248\u202f5\u202f% to 20\u202f%** of adults. The exact figure varies by country, ethnicity, and the diagnostic method used, but it is generally far below the 70\u201390\u202f% seen in many Northern\u2011European groups.\n\n---\n\n## Why the numbers differ across the Mediterranean\n\n| Region / Population | Typical prevalence of lactose intolerance* | Notes |\n|---------------------|-------------------------------------------|-------|\n| **Southern Europe** (Italy, Greece, Spain, Portugal) | 5\u202f%\u201315\u202f% | Lactase persistence is common; most adults can digest lactose. |\n| **North\u2011Mediterranean (Middle East, North Africa)** | 15\u202f%\u201340\u202f% | Higher rates than Southern Europe, but still lower than sub\u2011Saharan Africa. |\n| **Israel (Jewish & Arab)** | 10\u202f%\u201325\u202f% | Variation by ethnic group; Ashkenazi Jews have higher persistence. |\n| **Turkey** | 10\u202f%\u201320\u202f% | Similar to other Anatolian populations. |\n| **Cyprus** | 5\u202f%\u201315\u202f% | Reflects a mix of Greek and Turkish ancestry. |\n\n\\*Prevalence figures come from studies that used either **hydrogen breath tests**, **lactose\u2011challenge tests**, or **self\u2011reported symptoms**. The range reflects methodological differences and sample sizes.\n\n---\n\n## How the numbers are derived\n\n1. **Hydrogen breath test (HBT)** \u2013 the gold standard. A rise of \u2265\u202f20\u202fppm hydrogen in breath after lactose ingestion indicates intolerance.  \n2. **Lactose\u2011challenge test** \u2013 measures blood glucose rise after lactose ingestion.  \n3. **Questionnaires** \u2013 rely on self\u2011reported symptoms; often over\u2011estimate prevalence.  \n\nBecause of these methodological differences, studies report a wide range. For example, a 2015 meta\u2011analysis of Mediterranean populations found a pooled prevalence of **\u2248\u202f12\u202f%** (95\u202f%\u202fCI\u202f8\u201316\u202f%) using HBT.\n\n---\n\n## Key take\u2011aways\n\n| Point | Explanation |\n|-------|-------------|\n| **Lactase persistence is common** | In many Mediterranean groups, >\u202f70\u202f% of adults retain lactase activity into adulthood. |\n| **Prevalence is lower than in Northern Europe** | Northern Europeans show 70\u201390\u202f% lactose intolerance, whereas Mediterranean groups are typically 5\u201320\u202f%. |\n| **Variation exists** | Ethnic, genetic, and dietary factors cause differences even within the same country. |\n| **Clinical relevance** | Most Mediterranean adults can tolerate dairy, but a minority (~10\u202f%) may experience symptoms. |\n\n---\n\n## Quick reference\n\n- **Southern Europe (Italy, Greece, Spain)**: **\u2248\u202f5\u202f%\u201315\u202f%**  \n- **North\u2011Mediterranean (Middle East, North Africa)**: **\u2248\u202f15\u202f%\u201340\u202f%**  \n- **Overall Mediterranean average**: **\u2248\u202f10\u202f%\u201320\u202f%**\n\nIf you need a more precise figure for a specific country or ethnic group, let me know and I can dig into the latest regional studies.",
+      "sources": [],
+      "elapsed_ms": 582.0,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which country has the largest population in the dataset?",
+      "answer": "Nigeria has the largest population in the dataset.",
+      "sources": [
+        "Country,Capital,Population_Millions,Continent,GDP_Billions_USD\nFrance,Paris,67.8,Europe,2.958\nJapan,Tokyo,125.7,Asia,4.231\nBrazil,Brasilia,214.3,South America,1.920\nAustralia,Canberra,25.7,Oceania,1.6"
+      ],
+      "elapsed_ms": 19410.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the capital of Japan?",
+      "answer": "The capital of Japan is **Tokyo**.",
+      "sources": [],
+      "elapsed_ms": 487.8,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is Nigeria's GDP in billions USD?",
+      "answer": "**Nigeria\u2019s Gross Domestic Product (current US$)**  \n- **2023 (latest estimate)**: **\u2248\u202f$520\u202fbillion**  \n- **2022 (World Bank data)**: $514.5\u202fbillion  \n\n> *Source: World Bank World Development Indicators (WDI), \u201cGDP (current US$)\u201d, and IMF World Economic Outlook (latest projections).*\n\n> **Note:**  \n> - The 2023 figure is an estimate based on IMF and World Bank projections; official national accounts may revise it later.  \n> - GDP is reported in current (nominal) US dollars, not adjusted for inflation or purchasing\u2011power parity.",
+      "sources": [],
+      "elapsed_ms": 533.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which continent is Brazil located in?",
+      "answer": "Brazil is located on the continent of **South America**.",
+      "sources": [],
+      "elapsed_ms": 343.2,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the combined population of France and Canada in millions?",
+      "answer": "The combined population of France and Canada is roughly **106\u202fmillion people** (about 67\u202fmillion in France plus 38\u202fmillion in Canada).",
+      "sources": [],
+      "elapsed_ms": 554.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the population of Greenland?",
+      "answer": "Greenland\u2019s population is very small compared with its land area\u2014roughly **56,000 people** as of the most recent estimates (2023\u20112024). The figure has been fairly stable for the past decade, hovering between 55,000 and 57,000 residents. Most of the population lives along the western and southwestern coasts, in towns such as Nuuk (the capital), Sisimiut, and Ilulissat.",
+      "sources": [],
+      "elapsed_ms": 561.6,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the average temperature of Australia?",
+      "answer": "**Short answer:**  \nThe average annual temperature for the whole of Australia is roughly **21\u202f\u00b0C (\u2248\u202f70\u202f\u00b0F)**.  \n\n---\n\n## Why that number is a \u201cball\u2011park\u201d\n\nAustralia is a huge continent (\u2248\u202f7.7\u202fmillion\u202fkm\u00b2) with a wide range of climates:\n\n| Region | Typical climate | Approximate mean annual temperature |\n|--------|-----------------|-------------------------------------|\n| **Coastal (e.g., Sydney, Melbourne, Perth)** | Temperate | 15\u201320\u202f\u00b0C |\n| **Northern tropical (e.g., Darwin, Cairns)** | Tropical | 23\u201326\u202f\u00b0C |\n| **Central desert (e.g., Alice Springs, Outback)** | Arid | 20\u201325\u202f\u00b0C (hot days, cool nights) |\n| **Southern highlands (e.g., Adelaide, Hobart)** | Oceanic | 12\u201318\u202f\u00b0C |\n\nWhen you average all of those regions together, the national mean settles around **21\u202f\u00b0C**.  \n\n---\n\n## How the figure is derived\n\n1. **Data source** \u2013 The Australian Bureau of Meteorology (BOM) collects daily temperature records from thousands of weather stations across the country.  \n2. **Calculation** \u2013 For each station, the daily mean temperature (average of the high and low) is computed for every day of the year.  \n3. **Aggregation** \u2013 All station means are then averaged (often weighted by station density or area) to produce a national mean.  \n4. **Result** \u2013 The BOM\u2019s 2023\u20132024 climatology reports an average annual temperature of **21.0\u202f\u00b0C** for the mainland (excluding Tasmania, which is slightly cooler).\n\n---\n\n## Caveats & context\n\n| Point | Explanation |\n|-------|-------------|\n| **Regional variation** | Coastal areas are cooler, interior deserts hotter. |\n| **Seasonal swings** | Summer highs can exceed 40\u202f\u00b0C in the interior; winter lows can drop below 0\u202f\u00b0C in the south. |\n| **Tasmania** | Roughly 1\u20132\u202f\u00b0C cooler on average than the mainland. |\n| **Climate change** | The national mean has risen by about 0.6\u202f\u00b0C over the past 50\u202fyears. |\n\n---\n\n## Quick reference\n\n| Location | Mean annual temperature |\n|----------|--------------------------|\n| Sydney | 18\u201320\u202f\u00b0C |\n| Melbourne | 15\u201317\u202f\u00b0C |\n| Perth | 18\u201320\u202f\u00b0C |\n| Darwin | 24\u201326\u202f\u00b0C |\n| Alice Springs | 20\u201323\u202f\u00b0C |\n| Adelaide | 16\u201318\u202f\u00b0C |\n| Hobart | 12\u201314\u202f\u00b0C |\n\n---\n\n### Bottom line\n\nIf you\u2019re looking for a single number that captures the \u201caverage temperature of Australia,\u201d **21\u202f\u00b0C (70\u202f\u00b0F)** is the most widely cited figure. Just remember that the real climate you\u2019ll experience depends heavily on where you are on the continent.",
+      "sources": [],
+      "elapsed_ms": 257.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "If Germany generates 46% of its electricity from renewables, and it is also mentioned as reducing deforestation, how many countries are named in the documents?",
+      "answer": "The documents mention only one country explicitly: **Germany**.",
+      "sources": [
+        "Sea Level Rise\nGlobal sea levels have risen by 20 centimeters since 1900. The rate of rise is accelerating, currently at 4.5 millimeters per year. Coastal cities including Mumbai, Shanghai, and Miami ",
+        "Which cities face significant flooding risks?\nWhat solar panel efficiency was achieved in 2023?\nHow much of Germany's electricity comes from renewable sources?\nHow many climate refugees are projected "
+      ],
+      "elapsed_ms": 21909.5,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the population of Mars?",
+      "answer": "There are no humans (or any known living organisms) on Mars, so its population is **zero**. While robotic missions have visited the planet, no permanent or temporary human settlements have been established there.",
+      "sources": [],
+      "elapsed_ms": 536.8,
+      "passed": false
+    }
+  ],
+  "edge_case_results": [
+    {
+      "question": "What is the answer to life the universe and everything?",
+      "answer": "The answer is **42**.",
+      "handled": true,
+      "elapsed_ms": 551.4
+    },
+    {
+      "question": "What is the color of the number seven?",
+      "answer": "",
+      "handled": false,
+      "elapsed_ms": 565.6
+    },
+    {
+      "question": "What is 2+2?",
+      "answer": "4",
+      "handled": true,
+      "elapsed_ms": 603.7
+    },
+    {
+      "question": "What does a dog say?",
+      "answer": "A dog\u2019s most common vocalization is a bark\u2014often described as \u201cwoof,\u201d \u201cbark,\u201d or \u201carf.\u201d Dogs also whine, growl, howl, and make other sounds depending on their mood and situation.",
+      "handled": true,
+      "elapsed_ms": 373.9
+    }
+  ],
+  "hallucination_results": [
+    {
+      "question": "What was the global CO2 emission figure in 2023?",
+      "answer_snippet": "The global CO\u2082 emissions in 2023 were **36.8\u202fbillion tonnes**.",
+      "flagged": false,
+      "source_count": 1,
+      "elapsed_ms": 8121.5
+    },
+    {
+      "question": "According to the document, how much has sea level risen since 1900?",
+      "answer_snippet": "According to the document, sea level has risen by **20\u202fcentimeters** since 1900.",
+      "flagged": false,
+      "source_count": 1,
+      "elapsed_ms": 7076.1
+    },
+    {
+      "question": "Which three countries are the largest CO2 emitters and what are their emissions?",
+      "answer_snippet": "**Top three CO\u2082\u2011emitting countries (2023\u201124 estimates)**  \n\n| Rank | Country | CO\u2082 emissions (gigatonnes\u202fCO\u2082\u202fyr\u207b\u00b9) | Notes |\n|------|---------|------------------------------------|-------|\n| 1 | **Chi",
+      "flagged": true,
+      "source_count": 0,
+      "elapsed_ms": 723.4
+    },
+    {
+      "question": "What is the current rate of sea level rise?",
+      "answer_snippet": "**Global mean sea\u2011level rise (GMSLR) \u2013 2024\u20112026**\n\n| Metric | Value | Source |\n|--------|-------|--------|\n| **Average rate (2020\u20112024)** | **\u2248\u202f3.3\u202fmm\u202fyr\u207b\u00b9** | NASA/NOAA satellite altimetry (combined",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 555.9
+    },
+    {
+      "question": "Which cities face significant flooding risks?",
+      "answer_snippet": "### Cities with Significant Flooding Risks (2024\u20112026)\n\n| City | Why it\u2019s at risk | Key drivers | Current mitigation status |\n|------|-----------------|-------------|---------------------------|\n| **J",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 529.4
+    },
+    {
+      "question": "What solar panel efficiency was achieved in 2023?",
+      "answer_snippet": "**Solar\u2011cell efficiency records in 2023**\n\n| Cell type | Record efficiency (lab\u2011scale, under AM\u202f1.5\u202fG, 100\u202fmW\u202fcm\u207b\u00b2) | Institution / company | Year |\n|-----------|--------------------------------------",
+      "flagged": true,
+      "source_count": 0,
+      "elapsed_ms": 721.9
+    },
+    {
+      "question": "How much of Germany's electricity comes from renewable sources?",
+      "answer_snippet": "**Short answer:**  \nAs of 2023, roughly **48\u202f%** of Germany\u2019s electricity generation comes from renewable sources (wind, solar, hydro, biomass, etc.).  \n\n---\n\n### Quick facts\n\n| Year | Share of renewa",
+      "flagged": true,
+      "source_count": 0,
+      "elapsed_ms": 542.1
+    },
+    {
+      "question": "How many climate refugees are projected by 2050?",
+      "answer_snippet": "**Projected climate\u2011related displacement by 2050**\n\n| Source | Estimate | Notes |\n|--------|----------|-------|\n| **UNHCR (United Nations High Commissioner for Refugees)** \u2013 *Global Trends 2023* | **\u2248",
+      "flagged": true,
+      "source_count": 0,
+      "elapsed_ms": 578.2
+    },
+    {
+      "question": "What does the Paris Agreement target for net-zero emissions year?",
+      "answer_snippet": "The Paris Agreement does **not** pin down a specific calendar year for net\u2011zero. Instead, it sets a broader goal: **to bring global net\u2011greenhouse\u2011gas emissions to zero in the second half of the 21st\u202f",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 733.0
+    },
+    {
+      "question": "By how much are current policies projected to increase temperature by 2100?",
+      "answer_snippet": "Under the **current global climate\u2011policy framework** (i.e., the pledges and measures that are in place today, as reflected in the latest IPCC assessment), the projected temperature rise by the year\u202f2",
+      "flagged": true,
+      "source_count": 0,
+      "elapsed_ms": 412.7
+    },
+    {
+      "question": "How many people have walked on the Moon?",
+      "answer_snippet": "Only **12 people** have ever walked on the Moon. All of them were NASA astronauts who flew on the Apollo missions between 1969 and 1972:\n\n| Mission | Date | Lunar Surface Walkers |\n|---------|------|-",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 722.2
+    },
+    {
+      "question": "What happened during the Apollo 13 mission?",
+      "answer_snippet": "**Apollo\u202f13** was the seventh crewed mission in NASA\u2019s Apollo program and the third intended to land on the Moon. It launched on **April\u202f11,\u202f1970** from Cape Kennedy (now Cape Canaveral) aboard a Satu",
+      "flagged": true,
+      "source_count": 0,
+      "elapsed_ms": 1692.8
+    },
+    {
+      "question": "When was the first black hole image captured?",
+      "answer_snippet": "The first-ever image of a black hole\u2019s event horizon was taken by the **Event Horizon Telescope (EHT)** during a global observing campaign in **2017**. The data were collected in April\u2013May 2017, but t",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 751.8
+    },
+    {
+      "question": "How many confirmed moons does Saturn have as of 2023?",
+      "answer_snippet": "As of 2023, Saturn has **83 confirmed moons**. This count includes all the satellites that have been officially recognized by the International Astronomical Union (IAU) and have had their orbits confi",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 573.6
+    },
+    {
+      "question": "What is the mass of Sagittarius A in Suns?",
+      "answer_snippet": "Sagittarius\u202fA* (the supermassive black hole at the Milky Way\u2019s center) has a mass of roughly **4\u202f\u00d7\u202f10\u2076\u202fsolar masses**.  \nIn other words, it weighs about **four million Suns**.  The most recent dynamic",
+      "flagged": true,
+      "source_count": 0,
+      "elapsed_ms": 578.1
+    },
+    {
+      "question": "How many years did Opportunity rover operate on Mars?",
+      "answer_snippet": "The Opportunity rover was on the Martian surface for **15 years** (from its landing on January\u202f25,\u202f2004, until the last signal on June\u202f10,\u202f2018).  In total it operated for about 15\u202fyears, 5\u202fmonths, an",
+      "flagged": true,
+      "source_count": 0,
+      "elapsed_ms": 765.6
+    },
+    {
+      "question": "What was the name of Perseverance's companion helicopter?",
+      "answer_snippet": "The companion helicopter that flew alongside Perseverance was called **Ingenuity**.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 420.5
+    },
+    {
+      "question": "At what altitude does the ISS orbit Earth?",
+      "answer_snippet": "The International Space Station (ISS) orbits Earth at roughly **400\u202fkm (about 250\u202fmiles) above the surface**.  \n\n- **Typical altitude range:** 400\u202fkm\u202f\u2013\u202f420\u202fkm (\u2248\u202f250\u202f\u2013\u202f260\u202fmiles).  \n- **Orbital period",
+      "flagged": true,
+      "source_count": 0,
+      "elapsed_ms": 636.9
+    },
+    {
+      "question": "Which five countries collaborated on ISS construction?",
+      "answer_snippet": "The International Space Station was built through a partnership of five major space\u2011faring nations:\n\n| Country | Space Agency |\n|--------|--------------|\n| **United States** | NASA |\n| **Russia** | Ro",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 2532.4
+    },
+    {
+      "question": "How many Falcon 9 launches has SpaceX conducted as of 2023?",
+      "answer_snippet": "",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 287.3
+    },
+    {
+      "question": "What Python keyword defines a function?",
+      "answer_snippet": "The keyword is **`def`**.  \nIn Python you use `def` to start a function definition:\n\n```python\ndef my_function(arg1, arg2):\n    # function body\n    return arg1 + arg2\n```\n\n`def` tells the interpreter ",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 764.8
+    },
+    {
+      "question": "How do you create a dictionary comprehension?",
+      "answer_snippet": "### Dictionary comprehensions in Python\n\nA dictionary comprehension is a concise way to build a new dictionary from an iterable (or another dictionary) in a single expression.  \nIt has the same genera",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 505.6
+    },
+    {
+      "question": "What module provides async programming support?",
+      "answer_snippet": "In Python, the standard library module that gives you asynchronous programming support is **`asyncio`**.\n\n- **`asyncio`** provides the event loop, coroutines (`async def`), tasks, futures, and many ut",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 540.5
+    },
+    {
+      "question": "How do you specify a default parameter value?",
+      "answer_snippet": "",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 499.8
+    },
+    {
+      "question": "What keyword sends exceptions?",
+      "answer_snippet": "In most mainstream programming languages the keyword used to **send (or throw) an exception** is:\n\n```java\nthrow new SomeException(\"message\");\n```\n\nSo the keyword is **`throw`**.  \n\n(If you\u2019re working",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 659.7
+    },
+    {
+      "question": "What is the syntax for type hints?",
+      "answer_snippet": "",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 1348.9
+    },
+    {
+      "question": "What decorator preserves function metadata?",
+      "answer_snippet": "The decorator that preserves a function\u2019s original metadata (like its name, docstring, annotations, etc.) is **`functools.wraps`**.  \n\n```python\nfrom functools import wraps\n\ndef my_decorator(func):\n  ",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 999.6
+    },
+    {
+      "question": "How do you read all lines from a file?",
+      "answer_snippet": "",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 461.7
+    },
+    {
+      "question": "What keyword defines an async function?",
+      "answer_snippet": "The keyword is **`async`**. In most modern languages (JavaScript, Python, C#, etc.) you declare an asynchronous function by prefixing it with `async`.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 679.4
+    },
+    {
+      "question": "How many built-in types does Python have according to the document?",
+      "answer_snippet": "According to the document, Python has **8** built\u2011in types.",
+      "flagged": false,
+      "source_count": 3,
+      "elapsed_ms": 2634.9
+    },
+    {
+      "question": "Which five countries border the Mediterranean Sea?",
+      "answer_snippet": "The Mediterranean Sea is bordered by many nations, but here are five of them:\n\n- Spain  \n- France  \n- Italy  \n- Greece  \n- Turkey",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 708.4
+    },
+    {
+      "question": "What did UNESCO recognize in 2010?",
+      "answer_snippet": "",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 683.4
+    },
+    {
+      "question": "What is the primary fat source in the diet?",
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1a3x2j0ejc9vn3e1s2mhc1c` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199675, Requested 2377. Please try again in 14m46.464s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "question": "How much does the Mediterranean diet reduce cardiovascular disease risk?",
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1a3x2j0ejc9vn3e1s2mhc1c` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199658, Requested 2501. Please try again in 15m32.688s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "question": "Which cheese can be grilled without melting?",
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1a3x2j0ejc9vn3e1s2mhc1c` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199637, Requested 2380. Please try again in 14m31.344s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "question": "What traditional Turkish beverage is thick and served in small cups?",
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1a3x2j0ejc9vn3e1s2mhc1c` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199620, Requested 2500. Please try again in 15m15.84s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "question": "By what percentage has Germany reduced deforestation between 2019 and 2023?",
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1a3x2j0ejc9vn3e1s2mhc1c` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199602, Requested 2428. Please try again in 14m36.959999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "question": "Which country has the largest population in the dataset?",
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1a3x2j0ejc9vn3e1s2mhc1c` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199585, Requested 2431. Please try again in 14m30.912s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1a3x2j0ejc9vn3e1s2mhc1c` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199569, Requested 2551. Please try again in 15m15.84s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "question": "What is Nigeria's GDP in billions USD?",
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1a3x2j0ejc9vn3e1s2mhc1c` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199548, Requested 2546. Please try again in 15m4.608s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "question": "Which continent is Brazil located in?",
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1a3x2j0ejc9vn3e1s2mhc1c` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199530, Requested 2597. Please try again in 15m18.864s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "question": "What is the combined population of France and Canada in millions?",
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1a3x2j0ejc9vn3e1s2mhc1c` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199513, Requested 2433. Please try again in 14m0.672s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    {
+      "question": "If Germany generates 46% of its electricity from renewables, and it is also mentioned as reducing deforestation, how many countries are named in the documents?",
+      "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m1a3x2j0ejc9vn3e1s2mhc1c` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199497, Requested 1694. Please try again in 8m34.512s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    }
+  ]
+}

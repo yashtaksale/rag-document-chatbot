@@ -101,7 +101,7 @@ def _grade_chunks(question: str, chunks: list[str]) -> list[str]:
             return chunk, data.get("relevant") is True
         except Exception as exc:
             logger.warning("Chunk grading failed for a chunk: %s", exc)
-            return chunk, True  # default to keeping if grading fails
+            return chunk, False  # reject on failure — don't feed noise to the model
 
     relevant = []
     with ThreadPoolExecutor(max_workers=5) as pool:

@@ -27,6 +27,7 @@ from backend.conversations import (
     upsert_conversation,
 )
 from backend.file_processor import extract_text
+from backend.retrieval_gate import passes_gate
 from backend.vector_store import (
     add_chunks,
     clear_user_vault,
@@ -367,7 +368,8 @@ if active_prompt:
                             )
                             relevant_docs = raw_docs
                             raw_context = "\n\n---\n\n".join(raw_docs)
-                            status = "retrieved" if raw_docs else "refusal"
+                            passed, best_score = passes_gate(results)
+                            status = "retrieved" if passed else "refusal"
 
                     if status == "refusal" or not raw_context.strip():
                         answer = (

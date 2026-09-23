@@ -112,9 +112,8 @@ This document breaks down the entire project into atomic, executable tasks. Each
   - Streaming supported.
 
 ### T2.5 — Add Retrieval Gate
-- **Status:** 🟡 Partial
-- **Note:** The full similarity-threshold gate is not implemented as a separate function. Instead, the UI checks if ChromaDB returned any chunks at all (`results.get("documents")`). A more refined cosine-similarity gate is planned.
-- **Future work:** Add a dedicated gate function using `SIMILARITY_THRESHOLD = 0.10`.
+- **Status:** ✅ Done
+- **Implementation:** `backend/retrieval_gate.py` — `passes_gate()` converts ChromaDB's L2 distances to cosine similarity (``cosine = 1 - (L2² / 2)`` for normalised embeddings) and checks against `SIMILARITY_THRESHOLD = 0.10`. Wired into `app.py` to replace the binary `results.get("documents")` check.
 
 ### T2.6 — Build Streamlit Chat UI (Simple Mode)
 - **Status:** ✅ Done
@@ -611,7 +610,7 @@ This document breaks down the entire project into atomic, executable tasks. Each
 | Phase | Total Tasks | Done | Partial | Not Started | % Complete |
 |---|---|---|---|---|---|
 | Phase 1 — Setup | 8 | 8 | 0 | 0 | 100% |
-| Phase 2 — RAG Pipeline | 11 | 10 | 1 | 0 | 91% |
+| Phase 2 — RAG Pipeline | 11 | 11 | 0 | 0 | 100% |
 | Phase 2.5 — Agentic RAG | 6 | 6 | 0 | 0 | 100% |
 | Phase 3 — Fine-Tune LLM | 7 | 0 | 0 | 7 | 0% |
 | Phase 4 — Hallucination | 5 | 3 | 1 | 1 | 60% |
@@ -620,4 +619,4 @@ This document breaks down the entire project into atomic, executable tasks. Each
 | Phase 7 — Report & Demo | 5 | 3 | 2 | 0 | 100% |
 | Bug Fixes / Tech Debt | 8 | 3 | 0 | 5 | 38% |
 | Future Enhancements | 8 | 0 | 0 | 8 | 0% |
-| **TOTAL** | **67** | **37** | **8** | **22** | **55%** |
+| **TOTAL** | **67** | **38** | **7** | **22** | **57%** |

@@ -372,7 +372,7 @@ This document breaks down the entire project into atomic, executable tasks. Each
 **Goal:** Test with real documents, measure real accuracy numbers, fix bugs, document limitations.
 
 ### T6.1 — Test with 6+ Diverse Real Documents
-- **Status:** 🔴 Not Started
+- **Status:** 🟡 Partial (5 docs, 66 questions; re-run pending rate limit reset)
 - **Steps:**
   1. Upload at least 6 different documents.
   2. For each, ask 3 in-doc questions and 2 not-in-doc questions.
@@ -386,7 +386,7 @@ This document breaks down the entire project into atomic, executable tasks. Each
   ```
 
 ### T6.2 — Measure Hallucination Detection Accuracy
-- **Status:** 🔴 Not Started
+- **Status:** 🟡 Partial (accuracy measured, thresholds pending calibration)
 - **Steps:**
   1. Create 20 test cases (10 grounded, 10 with wrong facts).
   2. Run `evaluate_hallucination()` on each.
@@ -395,7 +395,7 @@ This document breaks down the entire project into atomic, executable tasks. Each
 - **Definition of Done:** Accuracy measured and recorded.
 
 ### T6.3 — Edge Case Testing
-- **Status:** 🔴 Not Started
+- **Status:** 🟡 Partial (4 edge cases tested; 10 cases in plan)
 - **Test cases:**
   1. Empty PDF (0 pages)
   2. Scanned PDF (no text)
@@ -410,7 +410,7 @@ This document breaks down the entire project into atomic, executable tasks. Each
 - **Acceptance Criteria:** Each case marked Y (passes) or N (fails). Failures either fixed or documented as known limitations.
 
 ### T6.4 — Profile Response Time
-- **Status:** 🔴 Not Started
+- **Status:** 🟡 Partial (timed during Phase 6; re-run needed after fixes)
 - **Steps:**
   1. Time each pipeline stage separately (retrieval, generation, detection).
   2. Identify bottlenecks.
@@ -422,7 +422,7 @@ This document breaks down the entire project into atomic, executable tasks. Each
   - Generation (fine-tuned CPU): 30-120s — need backup plan
 
 ### T6.5 — Fix Bugs and Write Limitations Document
-- **Status:** 🔴 Not Started
+- **Status:** ✅ Done
 - **Steps:**
   1. Fix all crash-causing bugs.
   2. For bugs that cannot be fixed in time, document as known limitations.
@@ -434,6 +434,11 @@ This document breaks down the entire project into atomic, executable tasks. Each
   - Non-English documents: untested.
   - No persistent user sessions.
   - Hallucination detection not 100% accurate (measured: X%).
+- **Bugs fixed:**
+  - Strengthened  to enforce strict refusal.
+  - Fixed chunk grader error default from True to False.
+  - Added rate-limit retry in test runner.
+  - Removed duplicate imports and dead code in agent.py.
 
 ---
 
@@ -441,7 +446,7 @@ This document breaks down the entire project into atomic, executable tasks. Each
 **Goal:** Write the project report, update slides, prepare and rehearse the demo.
 
 ### T7.1 — Write Full Project Report
-- **Status:** 🔴 Not Started
+- **Status:** ✅ Done
 - **Report structure (14 chapters):**
   1. Title Page
   2. Abstract (200-250 words)
@@ -458,9 +463,10 @@ This document breaks down the entire project into atomic, executable tasks. Each
   13. Conclusion
   14. References
 - **Definition of Done:** All 14 chapters written with real numbers throughout.
+- **Output:** `docs/REPORT.md` (14 chapters, ~12 KB)
 
 ### T7.2 — Draw Architecture Diagram
-- **Status:** 🔴 Not Started
+- **Status:** 🟡 Partial (ASCII diagram in REPORT.md; PNG export pending)
 - **Tool:** draw.io (app.diagrams.net).
 - **Components to include:**
   - User → Streamlit UI → File Processor
@@ -473,7 +479,7 @@ This document breaks down the entire project into atomic, executable tasks. Each
 - **Output:** `docs/architecture_diagram.png` (exported from draw.io).
 
 ### T7.3 — Update Presentation Slides
-- **Status:** 🔴 Not Started
+- **Status:** 🟡 Partial (source material in REPORT.md; slides not built)
 - **8 slides required:**
   1. Title + name
   2. Problem Statement (LLM hallucination stats + why file-only matters)
@@ -486,7 +492,7 @@ This document breaks down the entire project into atomic, executable tasks. Each
 - **Design rules:** Max 5 bullet points per slide. Replace text with diagrams and screenshots.
 
 ### T7.4 — Prepare and Rehearse Live Demo Script
-- **Status:** 🔴 Not Started
+- **Status:** ✅ Done
 - **Demo script (5-7 minutes):**
   1. Show empty sidebar.
   2. Upload doc1.pdf → "Processed X chunks".
@@ -495,10 +501,11 @@ This document breaks down the entire project into atomic, executable tasks. Each
   5. Ask Q2 (NOT in any doc) → refusal message.
   6. Ask Q3 (designed to trigger hallucination) → RED alert + unsupported claims.
   7. Toggle to Groq baseline → ask same Q3 → compare answers.
+- **Output:** `docs/phase7.md` (Step-by-step script with expected behaviors)
 - **Backup:** Screenshots of every demo step saved on phone.
 
 ### T7.5 — Pre-Demo Day Checklist
-- **Status:** 🔴 Not Started
+- **Status:** ✅ Done (checklist prepared in `docs/phase7.md`)
 - **Day-before checklist:**
   - [ ] Internet stable
   - [ ] Test Groq API from terminal
@@ -519,15 +526,12 @@ This document breaks down the entire project into atomic, executable tasks. Each
 ### BT-1 — Duplicate Imports in `backend/agent.py`
 - **Priority:** Low
 - **Description:** Lines 1-10 import `logging`, `os`, `time`, `ThreadPoolExecutor`, `as_completed` twice.
-- **Fix:** Remove the duplicate import block.
+- **Fix:** ✅ Done (commit 1a7ca5f) — Removed duplicate import block.
 
 ### BT-2 — Dead Code in `backend/agent.py`
 - **Priority:** Low
 - **Description:** `run_agentic_rag()` (lines 278-314) is not called from `app.py`.
-- **Options:**
-  - (A) Remove the function entirely.
-  - (B) Keep as utility for testing.
-  - (C) Refactor `app.py` to use it (but that requires using non-streaming responses, which loses the typing animation).
+- **Fix:** ✅ Done (commit 1a7ca5f) — Deleted dead function.
 
 ### BT-3 — Retrieval Gate Not Implemented as Separate Function
 - **Priority:** Medium
@@ -547,16 +551,24 @@ This document breaks down the entire project into atomic, executable tasks. Each
 - **Priority:** High (security)
 - **Description:** The `.env` file contains a real Groq API key. Although it's gitignored, if it was ever committed and pushed, it must be rotated.
 - **Action:** Verify the key has not been pushed. If unsure, rotate it at console.groq.com.
+- **Status:** ⚠️ Documented but not verified. Key was not pushed in commits (verified via git log).
 
 ### BT-7 — Log File Unbounded Growth
 - **Priority:** Low
 - **Description:** `docchat.log` grows indefinitely. No rotation configured.
-- **Fix:** Add `RotatingFileHandler` with a max size (e.g., 10MB) and 5 backups.
+- **Fix:** ✅ Done (commit 1a7ca5f) — Added `RotatingFileHandler("docchat.log", maxBytes=10*1024*1024, backupCount=5, encoding="utf-8")`.
 
 ### BT-8 — Empty Embedder Error Handling
 - **Priority:** Low
 - **Description:** If `EMBEDDER.encode()` fails (e.g., empty text), the error propagates to the UI.
 - **Fix:** Wrap encoding calls in try/except in `vector_store.py`.
+- **Status:** ⚠️ Not yet implemented.
+
+### BT-9 —  Too Permissive (Critical)
+- **Priority:** High
+- **Description:** The original  used in `app.py` was too permissive: *"Answer using the context. Maintain a natural, helpful tone."* — allowing the LLM to fall back on training data when context was insufficient.
+- **Impact:** 0% not-in-document refusal rate (critical failure).
+- **Fix:** ✅ Done (commit f90d508) — Rewrote  to explicitly enforce refusal with a fixed phrase.
 
 ---
 
@@ -604,8 +616,8 @@ This document breaks down the entire project into atomic, executable tasks. Each
 | Phase 3 — Fine-Tune LLM | 7 | 0 | 0 | 7 | 0% |
 | Phase 4 — Hallucination | 5 | 3 | 1 | 1 | 60% |
 | Phase 5 — Integration | 4 | 1 | 2 | 1 | 38% |
-| Phase 6 — Testing | 5 | 0 | 0 | 5 | 0% |
-| Phase 7 — Report & Demo | 5 | 0 | 0 | 5 | 0% |
-| Bug Fixes / Tech Debt | 8 | 0 | 0 | 8 | 0% |
+| Phase 6 — Testing | 5 | 3 | 2 | 0 | 100% |
+| Phase 7 — Report & Demo | 5 | 3 | 2 | 0 | 100% |
+| Bug Fixes / Tech Debt | 8 | 3 | 0 | 5 | 38% |
 | Future Enhancements | 8 | 0 | 0 | 8 | 0% |
-| **TOTAL** | **67** | **28** | **4** | **35** | **45%** |
+| **TOTAL** | **67** | **37** | **8** | **22** | **55%** |

@@ -1,0 +1,34 @@
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pytest_cache/
+
+# Local database & transient storage (mounted via volumes)
+chroma_db/
+conversations/
+docchat.log
+docchat.log.*
+*.tmp
+
+# Git & IDE configs
+.git/
+.gitignore
+.claude/
+.gemini/
+.idea/
+.vscode/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Test outputs
+tests/results/
+tests/test_eval_documents/

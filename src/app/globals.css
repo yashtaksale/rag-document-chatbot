@@ -1,0 +1,400 @@
+/* =============================================================================
+   DESIGN TOKEN SYSTEM & CORE STYLES
+   Aesthetic: Warm, minimal, calm (Claude/Anthropic inspired)
+   Themes: Warm Cream (Light) & Warm Charcoal (Dark)
+   Accent: Terracotta / Warm Orange (#D96B43 / #C85A32)
+   Typography: Serif (Newsreader/Lora/Georgia) for Assistant & Greeting,
+               Sans (Plus Jakarta Sans/Inter) for UI & User bubbles
+   ============================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "katex/dist/katex.min.css";
+
+:root {
+  /* ── Light Theme (Warm Off-white / Cream) ── */
+  --bg-primary: #FAF8F5;
+  --bg-secondary: #F3EFE9;
+  --bg-tertiary: #ECE5DC;
+  --bg-sidebar: #F5F1EB;
+  --bg-input: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-overlay: rgba(28, 25, 23, 0.45);
+
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --text-tertiary: #8C867E;
+  --text-muted: #A8A29E;
+
+  --border-subtle: #E8E2D9;
+  --border-medium: #DAD3C8;
+  --border-strong: #C4BCB0;
+
+  /* Terracotta / Warm Orange Accent */
+  --accent-primary: #D96B43;
+  --accent-hover: #C55A33;
+  --accent-active: #B04E2B;
+  --accent-subtle: rgba(217, 107, 67, 0.10);
+  --accent-border: rgba(217, 107, 67, 0.28);
+  --accent-text: #FFFFFF;
+
+  /* User Bubble */
+  --user-bubble-bg: #EFE9DF;
+  --user-bubble-border: #E0D7CB;
+  --user-bubble-text: #1C1917;
+
+  /* Assistant text styling */
+  --assistant-text: #1C1917;
+
+  /* Code Block */
+  --code-bg: #1F1D1A;
+  --code-header-bg: #282522;
+  --code-border: #383430;
+  --code-text: #F5F2EB;
+  --inline-code-bg: rgba(140, 134, 126, 0.15);
+  --inline-code-text: #B45309;
+
+  /* Thinking Box */
+  --thinking-bg: #F4EFEB;
+  --thinking-border: #E4DCD3;
+  --thinking-text: #6E6861;
+
+  /* Tool & Citation Pills */
+  --pill-bg: #ECE5DC;
+  --pill-border: #DDD5C9;
+  --pill-hover: #E2DAD0;
+
+  /* Typography */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, 'SF Mono', Monaco, monospace;
+
+  /* Border Radii */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-subtle: 0 1px 2px rgba(28, 25, 23, 0.04);
+  --shadow-card: 0 4px 14px rgba(28, 25, 23, 0.06);
+  --shadow-elevated: 0 10px 30px rgba(28, 25, 23, 0.10);
+  --shadow-modal: 0 20px 50px rgba(28, 25, 23, 0.18);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Dark Theme (Warm Charcoal, NEVER Pure Black) ── */
+[data-theme="dark"] {
+  --bg-primary: #1C1A18;
+  --bg-secondary: #24221F;
+  --bg-tertiary: #2D2A26;
+  --bg-sidebar: #171513;
+  --bg-input: #23201D;
+  --bg-card: #23201D;
+  --bg-overlay: rgba(0, 0, 0, 0.65);
+
+  --text-primary: #F5F2EB;
+  --text-secondary: #B5AFA6;
+  --text-tertiary: #7C776F;
+  --text-muted: #59554F;
+
+  --border-subtle: #2E2B27;
+  --border-medium: #3B3833;
+  --border-strong: #4F4B44;
+
+  /* Terracotta in Dark Mode (slightly warmer glow) */
+  --accent-primary: #E0734B;
+  --accent-hover: #E8835D;
+  --accent-active: #C85A32;
+  --accent-subtle: rgba(224, 115, 75, 0.16);
+  --accent-border: rgba(224, 115, 75, 0.35);
+  --accent-text: #FFFFFF;
+
+  /* User Bubble in Dark Mode */
+  --user-bubble-bg: #2B2824;
+  --user-bubble-border: #3D3934;
+  --user-bubble-text: #F5F2EB;
+
+  /* Assistant text */
+  --assistant-text: #ECE7DE;
+
+  /* Code Block in Dark Mode */
+  --code-bg: #141311;
+  --code-header-bg: #1D1B18;
+  --code-border: #2D2A26;
+  --code-text: #ECE7DE;
+  --inline-code-bg: rgba(224, 115, 75, 0.12);
+  --inline-code-text: #F59E0B;
+
+  /* Thinking Box */
+  --thinking-bg: #22201D;
+  --thinking-border: #322F2A;
+  --thinking-text: #A8A29A;
+
+  /* Tool & Citation Pills */
+  --pill-bg: #2B2824;
+  --pill-border: #3B3732;
+  --pill-hover: #35322C;
+
+  /* Shadows */
+  --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.35);
+  --shadow-elevated: 0 10px 30px rgba(0, 0, 0, 0.50);
+  --shadow-modal: 0 20px 50px rgba(0, 0, 0, 0.65);
+}
+
+/* ── Reset & Global Typography ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  color: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* ── Animations ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulseWarm {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Streaming Blinking Caret */
+.streaming-caret {
+  display: inline-block;
+  width: 7px;
+  height: 17px;
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  background-color: var(--accent-primary);
+  border-radius: 2px;
+  animation: blink 0.9s infinite ease-in-out;
+}
+
+/* Shimmer on active thinking box */
+.shimmer-active {
+  background: linear-gradient(
+    90deg,
+    var(--thinking-bg) 0%,
+    var(--bg-tertiary) 50%,
+    var(--thinking-bg) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.2s infinite ease-in-out;
+}
+
+/* ── Markdown Content Styling ── */
+.markdown-content {
+  font-family: inherit;
+  font-size: 15.5px;
+  line-height: 1.68;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.markdown-assistant {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.72;
+  color: var(--assistant-text);
+  letter-spacing: -0.01em;
+}
+
+.markdown-assistant p {
+  margin-bottom: 14px;
+}
+.markdown-assistant p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content p {
+  margin-bottom: 12px;
+}
+.markdown-content p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 24px;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+.markdown-content h1 { font-size: 1.45em; }
+.markdown-content h2 { font-size: 1.25em; }
+.markdown-content h3 { font-size: 1.1em; }
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 10px 0 14px 22px;
+  padding: 0;
+}
+.markdown-content li {
+  margin-bottom: 6px;
+  padding-left: 2px;
+}
+
+.markdown-content blockquote {
+  margin: 14px 0;
+  padding: 8px 16px;
+  border-left: 3px solid var(--accent-primary);
+  background: var(--bg-secondary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.markdown-content pre {
+  margin: 14px 0;
+  border-radius: var(--radius-md);
+  background-color: var(--code-bg);
+  border: 1px solid var(--code-border);
+  overflow-x: auto;
+  position: relative;
+}
+
+.markdown-content code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background-color: var(--inline-code-bg);
+  color: var(--inline-code-text);
+  padding: 2px 5px;
+  border-radius: var(--radius-xs);
+}
+
+.markdown-content pre code {
+  display: block;
+  padding: 14px 18px;
+  color: var(--code-text);
+  background: transparent;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 16px 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.markdown-content th,
+.markdown-content td {
+  padding: 8px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.markdown-content th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.markdown-content tr:last-child td {
+  border-bottom: none;
+}
+
+.markdown-content hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 22px 0;
+}
+
+/* KaTeX custom overrides */
+.katex-display {
+  margin: 16px 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 0;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

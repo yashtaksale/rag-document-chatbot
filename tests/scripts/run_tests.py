@@ -61,25 +61,26 @@ def ingest_documents(file_paths, user_id=999):
     # Create a combined test document
     chunks = chunker_mod.chunk_text(all_text, "test_suite_combined")
 
-    from backend.config import CHROMA_DB_PATH, CHROMA_COLLECTION_NAME, EMBEDDER_NAME
+    from backend.config import CHROMA_DB_PATH, EMBEDDER_NAME
     import chromadb
 
     client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
+    TEST_COLLECTION_NAME = "test_eval_documents"
 
-    # Clear any previous test data for this user
+    # Clear any previous test data for the test collection only (never delete production collection)
     try:
-        client.delete_collection(CHROMA_COLLECTION_NAME)
+        client.delete_collection(TEST_COLLECTION_NAME)
     except Exception:
         pass
 
-    collection = client.get_or_create_collection(CHROMA_COLLECTION_NAME)
+    collection = client.get_or_create_collection(TEST_COLLECTION_NAME)
 
-    # Store chunks via vector_store helper
+    # Store chunks via vector_store helper with normalized embeddings
     from sentence_transformers import SentenceTransformer
     embedder = SentenceTransformer(EMBEDDER_NAME)
 
     texts = [c["text"] for c in chunks]
-    embeddings = embedder.encode(texts).tolist()
+    embeddings = embedder.encode(texts, normalize_embeddings=True).tolist()
     ids = [f"u{user_id}_{c['source']}_c{c['chunk_id']}" for c in chunks]
     metadatas = [
         {"source": c["source"], "chunk_id": c["chunk_id"], "user_id": user_id}

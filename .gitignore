@@ -1,3 +1,6 @@
+node_modules/
+.next/
+*.tsbuildinfo
 venv/
 __pycache__/
 *.pyc
@@ -9,4 +12,4 @@ conversations/
 *.safetensors
 docchat.log
 .DS_Store
-*.tmp
+*.tmp

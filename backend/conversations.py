@@ -47,6 +47,10 @@ def save_all(user_id: int, conversations: list[dict]) -> None:
         raise
 
 
+MAX_MESSAGES_PER_CONV = 100
+MAX_CONVERSATIONS_PER_USER = 100
+
+
 def get_conversation(user_id: int, conversation_id: str) -> dict | None:
     convs = load_all(user_id)
     return next((c for c in convs if c["id"] == conversation_id), None)
@@ -57,11 +61,21 @@ def upsert_conversation(user_id: int, conv: dict) -> None:
     now = time.time()
     conv["updated_at"] = now
 
+    # Cap message history inside the conversation to prevent unbounded growth
+    if "messages" in conv and isinstance(conv["messages"], list):
+        if len(conv["messages"]) > MAX_MESSAGES_PER_CONV:
+            conv["messages"] = conv["messages"][-MAX_MESSAGES_PER_CONV:]
+
     idx = next((i for i, c in enumerate(convs) if c["id"] == conv["id"]), None)
     if idx is not None:
         convs[idx] = conv
     else:
         convs.insert(0, conv)
+
+    # Cap total stored conversations per user
+    if len(convs) > MAX_CONVERSATIONS_PER_USER:
+        convs = convs[:MAX_CONVERSATIONS_PER_USER]
+
     save_all(user_id, convs)
 
 
@@ -73,15 +87,18 @@ def delete_conversation(user_id: int, conversation_id: str) -> None:
 def build_conversation(conv_id: str | None, messages: list[dict]) -> dict:
     title = "New Chat"
     for m in messages:
-        if m["role"] == "user":
-            # Keep total title at ~28 chars: slice to 25 + "..."
-            content = m["content"]
+        if m.get("role") == "user":
+            content = str(m.get("content", ""))
             title = content[:25] + ("..." if len(content) > 25 else "")
             break
+    
+    # Bound messages length
+    trimmed_messages = messages[-MAX_MESSAGES_PER_CONV:] if len(messages) > MAX_MESSAGES_PER_CONV else messages
+
     return {
         "id": conv_id or str(uuid.uuid4()),
         "title": title,
-        "messages": messages,
+        "messages": trimmed_messages,
         "is_archived": False,
         "updated_at": time.time(),
     }

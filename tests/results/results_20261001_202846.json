@@ -1,0 +1,940 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-01T20:28:46.796596+00:00",
+    "total_test_cases": 66,
+    "docs_tested": [
+      "climate_change.txt",
+      "countries.csv",
+      "mediterranean_diet.txt",
+      "python_programming.txt",
+      "space_missions.txt",
+      "test_questions.txt"
+    ],
+    "total_chunks": 54
+  },
+  "stats": {
+    "accuracy": {
+      "in_doc_correct": 3,
+      "in_doc_total": 43,
+      "in_doc_rate": 0.06976744186046512,
+      "not_in_doc_correct": 19,
+      "not_in_doc_total": 19,
+      "not_in_doc_rate": 1.0
+    },
+    "hallucination": {
+      "detected": 0,
+      "total": 43,
+      "rate": 0.0
+    },
+    "edge_case": {
+      "handled": 4,
+      "total": 4,
+      "rate": 1.0
+    },
+    "performance": {
+      "total": 10,
+      "avg_ms": 826.6380799997933,
+      "min_ms": 500.3274999999121,
+      "max_ms": 2663.594199999352
+    }
+  },
+  "accuracy_results": [
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What was the global CO2 emission figure in 2023?",
+      "answer": "The global CO\u2082 emissions in 2023 were 36.8\u202fbillion tonnes.",
+      "sources": [
+        "Climate Change Report 2023\nGlobal Temperature Rise\nThe average global temperature has increased by approximately 1.1 degrees Celsius compared to pre-industrial levels. The Paris Agreement aims to limi"
+      ],
+      "elapsed_ms": 1504.1,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "According to the document, how much has sea level risen since 1900?",
+      "answer": "20 centimeters",
+      "sources": [
+        "Sea Level Rise\nGlobal sea levels have risen by 20 centimeters since 1900. The rate of rise is accelerating, currently at 4.5 millimeters per year. Coastal cities including Mumbai, Shanghai, and Miami "
+      ],
+      "elapsed_ms": 1267.0,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which three countries are the largest CO2 emitters and what are their emissions?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 622.1,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the current rate of sea level rise?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 549.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which cities face significant flooding risks?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 661.2,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What solar panel efficiency was achieved in 2023?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 505.9,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How much of Germany's electricity comes from renewable sources?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 467.5,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many climate refugees are projected by 2050?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 473.7,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What does the Paris Agreement target for net-zero emissions year?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 505.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "By how much are current policies projected to increase temperature by 2100?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 552.3,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the chemical formula for CFCs?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 516.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "How much does a carbon capture plant cost in India?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 523.7,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "When was the Kyoto Protocol signed?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 413.2,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the ozone layer depletion rate?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 558.7,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many people have walked on the Moon?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 427.3,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What happened during the Apollo 13 mission?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 436.6,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "When was the first black hole image captured?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 542.2,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many confirmed moons does Saturn have as of 2023?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 536.9,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the mass of Sagittarius A in Suns?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 537.0,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many years did Opportunity rover operate on Mars?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 591.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What was the name of Perseverance's companion helicopter?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 512.9,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "At what altitude does the ISS orbit Earth?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 557.8,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which five countries collaborated on ISS construction?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 664.8,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many Falcon 9 launches has SpaceX conducted as of 2023?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 545.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the composition of dark matter in galaxies?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 510.3,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "How many galaxies are in the observable universe?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 849.6,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the habitable zone distance for Proxima Centauri?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 561.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "When will the next total solar eclipse be visible in the UK?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 550.2,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What Python keyword defines a function?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 521.6,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How do you create a dictionary comprehension?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 639.8,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What module provides async programming support?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 682.2,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How do you specify a default parameter value?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 651.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What keyword sends exceptions?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 620.8,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the syntax for type hints?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 554.6,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What decorator preserves function metadata?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 579.6,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How do you read all lines from a file?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 326.0,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What keyword defines an async function?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 498.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How many built-in types does Python have according to the document?",
+      "answer": "Python has eight built\u2011in types according to the document.",
+      "sources": [
+        "Python Programming Guide\nVariables and Types\nPython supports dynamic typing with built-in types: int, float, str, bool, list, dict, tuple, and set. Variables are assigned using the equals sign. The ty"
+      ],
+      "elapsed_ms": 1423.1,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the GIL in Python?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 470.6,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "How does Python's garbage collector work?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 481.2,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the difference between == and is?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 261.1,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "When was Python first released?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 547.4,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which five countries border the Mediterranean Sea?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 252.0,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What did UNESCO recognize in 2010?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 539.2,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the primary fat source in the diet?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 522.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "How much does the Mediterranean diet reduce cardiovascular disease risk?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 520.5,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which cheese can be grilled without melting?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 544.3,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What traditional Turkish beverage is thick and served in small cups?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 632.1,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "By what percentage has Germany reduced deforestation between 2019 and 2023?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 266.1,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "How many calories are in a standard serving of hummus?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 499.4,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the average lifespan in Greece?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 525.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "How much olive oil does Italy import annually?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 549.9,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What percentage of Mediterranean people are lactose intolerant?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 284.7,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which country has the largest population in the dataset?",
+      "answer": "Nigeria has the largest population in the dataset.",
+      "sources": [
+        "Country,Capital,Population_Millions,Continent,GDP_Billions_USD\nFrance,Paris,67.8,Europe,2.958\nJapan,Tokyo,125.7,Asia,4.231\nBrazil,Brasilia,214.3,South America,1.920\nAustralia,Canberra,25.7,Oceania,1.6"
+      ],
+      "elapsed_ms": 1253.7,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the capital of Japan?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 481.7,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is Nigeria's GDP in billions USD?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 403.9,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "Which continent is Brazil located in?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 467.1,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "What is the combined population of France and Canada in millions?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 547.4,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the population of Greenland?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 581.8,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the average temperature of Australia?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 609.0,
+      "passed": true
+    },
+    {
+      "doc": "unknown",
+      "category": "in_doc",
+      "question": "If Germany generates 46% of its electricity from renewables, and it is also mentioned as reducing deforestation, how many countries are named in the documents?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [
+        "Sea Level Rise\nGlobal sea levels have risen by 20 centimeters since 1900. The rate of rise is accelerating, currently at 4.5 millimeters per year. Coastal cities including Mumbai, Shanghai, and Miami "
+      ],
+      "elapsed_ms": 1792.9,
+      "passed": false
+    },
+    {
+      "doc": "unknown",
+      "category": "not_in_doc",
+      "question": "What is the population of Mars?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "sources": [],
+      "elapsed_ms": 529.7,
+      "passed": true
+    }
+  ],
+  "edge_case_results": [
+    {
+      "question": "What is the answer to life the universe and everything?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "handled": true,
+      "elapsed_ms": 578.2
+    },
+    {
+      "question": "What is the color of the number seven?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "handled": true,
+      "elapsed_ms": 552.8
+    },
+    {
+      "question": "What is 2+2?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "handled": true,
+      "elapsed_ms": 463.0
+    },
+    {
+      "question": "What does a dog say?",
+      "answer": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "handled": true,
+      "elapsed_ms": 214.6
+    }
+  ],
+  "hallucination_results": [
+    {
+      "question": "What was the global CO2 emission figure in 2023?",
+      "answer_snippet": "The global CO\u2082 emissions in 2023 were 36.8\u202fbillion tonnes.",
+      "flagged": false,
+      "source_count": 1,
+      "elapsed_ms": 1754.2
+    },
+    {
+      "question": "According to the document, how much has sea level risen since 1900?",
+      "answer_snippet": "20 centimeters",
+      "flagged": false,
+      "source_count": 1,
+      "elapsed_ms": 1406.6
+    },
+    {
+      "question": "Which three countries are the largest CO2 emitters and what are their emissions?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 520.8
+    },
+    {
+      "question": "What is the current rate of sea level rise?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 503.9
+    },
+    {
+      "question": "Which cities face significant flooding risks?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 615.6
+    },
+    {
+      "question": "What solar panel efficiency was achieved in 2023?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 429.6
+    },
+    {
+      "question": "How much of Germany's electricity comes from renewable sources?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 545.7
+    },
+    {
+      "question": "How many climate refugees are projected by 2050?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 496.0
+    },
+    {
+      "question": "What does the Paris Agreement target for net-zero emissions year?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 546.6
+    },
+    {
+      "question": "By how much are current policies projected to increase temperature by 2100?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 272.2
+    },
+    {
+      "question": "How many people have walked on the Moon?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 494.5
+    },
+    {
+      "question": "What happened during the Apollo 13 mission?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 492.6
+    },
+    {
+      "question": "When was the first black hole image captured?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 632.6
+    },
+    {
+      "question": "How many confirmed moons does Saturn have as of 2023?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 583.6
+    },
+    {
+      "question": "What is the mass of Sagittarius A in Suns?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 235.9
+    },
+    {
+      "question": "How many years did Opportunity rover operate on Mars?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 482.4
+    },
+    {
+      "question": "What was the name of Perseverance's companion helicopter?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 534.0
+    },
+    {
+      "question": "At what altitude does the ISS orbit Earth?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 686.1
+    },
+    {
+      "question": "Which five countries collaborated on ISS construction?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 604.6
+    },
+    {
+      "question": "How many Falcon 9 launches has SpaceX conducted as of 2023?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 524.1
+    },
+    {
+      "question": "What Python keyword defines a function?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 493.7
+    },
+    {
+      "question": "How do you create a dictionary comprehension?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 541.1
+    },
+    {
+      "question": "What module provides async programming support?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 496.5
+    },
+    {
+      "question": "How do you specify a default parameter value?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 525.7
+    },
+    {
+      "question": "What keyword sends exceptions?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 561.8
+    },
+    {
+      "question": "What is the syntax for type hints?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 609.3
+    },
+    {
+      "question": "What decorator preserves function metadata?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 406.1
+    },
+    {
+      "question": "How do you read all lines from a file?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 561.1
+    },
+    {
+      "question": "What keyword defines an async function?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 532.5
+    },
+    {
+      "question": "How many built-in types does Python have according to the document?",
+      "answer_snippet": "8",
+      "flagged": false,
+      "source_count": 1,
+      "elapsed_ms": 1456.6
+    },
+    {
+      "question": "Which five countries border the Mediterranean Sea?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 528.0
+    },
+    {
+      "question": "What did UNESCO recognize in 2010?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 518.1
+    },
+    {
+      "question": "What is the primary fat source in the diet?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 509.7
+    },
+    {
+      "question": "How much does the Mediterranean diet reduce cardiovascular disease risk?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 287.5
+    },
+    {
+      "question": "Which cheese can be grilled without melting?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 500.9
+    },
+    {
+      "question": "What traditional Turkish beverage is thick and served in small cups?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 565.5
+    },
+    {
+      "question": "By what percentage has Germany reduced deforestation between 2019 and 2023?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 555.7
+    },
+    {
+      "question": "Which country has the largest population in the dataset?",
+      "answer_snippet": "Nigeria has the largest population in the dataset.",
+      "flagged": false,
+      "source_count": 1,
+      "elapsed_ms": 1225.3
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 511.6
+    },
+    {
+      "question": "What is Nigeria's GDP in billions USD?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 532.5
+    },
+    {
+      "question": "Which continent is Brazil located in?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 390.6
+    },
+    {
+      "question": "What is the combined population of France and Canada in millions?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 0,
+      "elapsed_ms": 510.5
+    },
+    {
+      "question": "If Germany generates 46% of its electricity from renewables, and it is also mentioned as reducing deforestation, how many countries are named in the documents?",
+      "answer_snippet": "I do not have sufficient information in the provided documents to answer this accurately.",
+      "flagged": false,
+      "source_count": 1,
+      "elapsed_ms": 1519.8
+    }
+  ]
+}

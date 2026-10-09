@@ -16,6 +16,8 @@ import { useUIStore } from '../../stores/ui-store';
 import { SettingsModal } from './SettingsModal';
 import { DocumentVaultModal } from './DocumentVaultModal';
 import { SearchCommandPalette } from '../chat/SearchCommandPalette';
+import { AuthModal } from '../auth/AuthModal';
+import { DEMO_ACCOUNTS } from '../../lib/db';
 import { useDocChatStore } from '../../stores/docchat-store';
 import type { Conversation } from '../../lib/types';
 
@@ -33,6 +35,20 @@ export function Sidebar() {
   const [editTitle, setEditTitle] = useState('');
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+    if (isUserMenuOpen) {
+      document.addEventListener('mousedown', handleOutsideClick);
+    }
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, [isUserMenuOpen]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -405,98 +421,384 @@ export function Sidebar() {
         <div
           style={{
             borderTop: '1px solid var(--border-subtle)',
-            padding: '12px 14px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            padding: '10px 14px',
+            position: 'relative',
             backgroundColor: 'var(--bg-secondary)',
           }}
           suppressHydrationWarning
         >
-          {/* User badge */}
-          <div
-            onClick={userStore.openSettings}
-            style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', flex: 1, minWidth: 0 }}
-          >
+          {/* User Popover Menu */}
+          {isUserMenuOpen && (
             <div
+              ref={userMenuRef}
               style={{
-                width: 32,
-                height: 32,
-                borderRadius: 'var(--radius-full)',
-                backgroundColor: 'var(--accent-subtle)',
-                color: 'var(--accent-primary)',
-                border: '1px solid var(--accent-border)',
+                position: 'absolute',
+                bottom: '100%',
+                left: '10px',
+                right: '10px',
+                marginBottom: '8px',
+                backgroundColor: 'var(--bg-card)',
+                border: '1px solid var(--border-medium)',
+                borderRadius: 'var(--radius-md, 10px)',
+                boxShadow: 'var(--shadow-modal, 0 12px 30px rgba(0,0,0,0.35))',
+                zIndex: 90,
+                padding: '8px',
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 13,
-                fontWeight: 700,
+                flexDirection: 'column',
+                gap: '4px',
+                animation: 'fadeIn 0.15s ease-out',
               }}
             >
-              {isMounted ? userStore.user.name?.[0] || 'U' : 'U'}
-            </div>
-            <div style={{ overflow: 'hidden' }}>
+              {/* User details header */}
               <div
                 style={{
-                  fontSize: 13,
-                  color: 'var(--text-primary)',
-                  fontWeight: 600,
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
+                  padding: '8px 10px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  borderBottom: '1px solid var(--border-subtle)',
+                  marginBottom: '4px',
                 }}
               >
-                {isMounted ? userStore.user.name : 'User'}
+                <div
+                  style={{
+                    width: 34,
+                    height: 34,
+                    borderRadius: '50%',
+                    backgroundColor: 'var(--accent-primary)',
+                    color: '#fff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: 700,
+                    fontSize: 14,
+                    flexShrink: 0,
+                  }}
+                >
+                  {userStore.user.name?.[0] || 'U'}
+                </div>
+                <div style={{ overflow: 'hidden', flex: 1, minWidth: 0 }}>
+                  <div
+                    style={{
+                      fontSize: 13,
+                      fontWeight: 600,
+                      color: 'var(--text-primary)',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                  >
+                    {userStore.user.name}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 11,
+                      color: 'var(--text-tertiary)',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                  >
+                    {userStore.user.email || 'No email attached'}
+                  </div>
+                </div>
+                <span
+                  style={{
+                    fontSize: 10,
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    padding: '2px 6px',
+                    borderRadius: '4px',
+                    backgroundColor: 'var(--accent-subtle)',
+                    color: 'var(--accent-primary)',
+                    border: '1px solid var(--accent-border)',
+                  }}
+                >
+                  {userStore.user.role || userStore.user.planTier}
+                </span>
               </div>
-              <div
-                style={{ fontSize: 11, color: 'var(--text-tertiary)', textTransform: 'capitalize' }}
-                suppressHydrationWarning
+
+              {/* Fast Account Switcher */}
+              <div style={{ padding: '4px 8px 2px' }}>
+                <div style={{ fontSize: 10.5, fontWeight: 700, color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 4 }}>
+                  Switch Account
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                  {DEMO_ACCOUNTS.map((acc) => {
+                    const isCurrent = userStore.user.id === acc.id;
+                    return (
+                      <button
+                        key={acc.id}
+                        onClick={() => {
+                          setIsUserMenuOpen(false);
+                          userStore.switchUser(acc);
+                        }}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          padding: '5px 8px',
+                          borderRadius: 'var(--radius-xs, 4px)',
+                          border: 'none',
+                          backgroundColor: isCurrent ? 'var(--accent-subtle)' : 'transparent',
+                          color: isCurrent ? 'var(--accent-primary)' : 'var(--text-secondary)',
+                          cursor: 'pointer',
+                          fontSize: 12,
+                          textAlign: 'left',
+                          transition: 'background 0.12s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!isCurrent) e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!isCurrent) e.currentTarget.style.backgroundColor = 'transparent';
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 6, overflow: 'hidden' }}>
+                          <span style={{ fontSize: 11 }}>👤</span>
+                          <span style={{ fontWeight: isCurrent ? 600 : 400, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            {acc.name}
+                          </span>
+                        </div>
+                        {isCurrent && <span style={{ fontSize: 12 }}>✓</span>}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div style={{ height: 1, backgroundColor: 'var(--border-subtle)', margin: '4px 0' }} />
+
+              {/* Log in with another account */}
+              <button
+                onClick={() => {
+                  setIsUserMenuOpen(false);
+                  userStore.openAuthModal('signin');
+                }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '7px 10px',
+                  borderRadius: 'var(--radius-xs, 4px)',
+                  border: 'none',
+                  backgroundColor: 'transparent',
+                  color: 'var(--text-primary)',
+                  fontSize: 12.5,
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-secondary)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
               >
-                {isMounted ? `${userStore.user.planTier} Plan` : 'Free Plan'}
+                <span>➕</span>
+                <span>Add / Log into Another Account</span>
+              </button>
+
+              {/* Settings Action */}
+              <button
+                onClick={() => {
+                  setIsUserMenuOpen(false);
+                  userStore.openSettings();
+                }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '7px 10px',
+                  borderRadius: 'var(--radius-xs, 4px)',
+                  border: 'none',
+                  backgroundColor: 'transparent',
+                  color: 'var(--text-primary)',
+                  fontSize: 12.5,
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-secondary)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
+              >
+                <span>⚙️</span>
+                <span>Settings</span>
+              </button>
+
+              <div style={{ height: 1, backgroundColor: 'var(--border-subtle)', margin: '4px 0' }} />
+
+              {/* ── SIGN OUT ACTION ── */}
+              <button
+                onClick={async () => {
+                  setIsUserMenuOpen(false);
+                  await userStore.signOut();
+                }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '8px 10px',
+                  borderRadius: 'var(--radius-xs, 4px)',
+                  border: 'none',
+                  backgroundColor: 'rgba(239, 68, 68, 0.08)',
+                  color: '#ef4444',
+                  fontSize: 13,
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                  transition: 'all 0.15s ease',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(239, 68, 68, 0.18)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(239, 68, 68, 0.08)'; }}
+              >
+                <span>🚪</span>
+                <span>Sign Out</span>
+              </button>
+            </div>
+          )}
+
+          {/* Footer Bar Content: Logged in profile or Sign In button */}
+          {userStore.user.isAuthenticated ? (
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              {/* User badge row */}
+              <div
+                onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  cursor: 'pointer',
+                  flex: 1,
+                  minWidth: 0,
+                  padding: '4px 6px',
+                  borderRadius: 'var(--radius-sm, 6px)',
+                  transition: 'background 0.15s ease',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
+                title="Account menu & Sign Out"
+              >
+                <div
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: 'var(--radius-full)',
+                    backgroundColor: 'var(--accent-subtle)',
+                    color: 'var(--accent-primary)',
+                    border: '1px solid var(--accent-border)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 13,
+                    fontWeight: 700,
+                    flexShrink: 0,
+                  }}
+                >
+                  {isMounted ? userStore.user.name?.[0] || 'U' : 'U'}
+                </div>
+                <div style={{ overflow: 'hidden', flex: 1, minWidth: 0 }}>
+                  <div
+                    style={{
+                      fontSize: 13,
+                      color: 'var(--text-primary)',
+                      fontWeight: 600,
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                  >
+                    {isMounted ? userStore.user.name : 'User'}
+                  </div>
+                  <div
+                    style={{ fontSize: 11, color: 'var(--text-tertiary)', textTransform: 'capitalize' }}
+                    suppressHydrationWarning
+                  >
+                    {isMounted ? `${userStore.user.planTier} Plan` : 'Free Plan'}
+                  </div>
+                </div>
+                <span style={{ color: 'var(--text-tertiary)', fontSize: 12, marginRight: 2 }}>
+                  {isUserMenuOpen ? '▲' : '▼'}
+                </span>
+              </div>
+
+              {/* Quick Theme Toggle & Settings icon */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <button
+                  onClick={themeStore.toggleTheme}
+                  title={`Switch to ${themeStore.resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--text-secondary)',
+                    cursor: 'pointer',
+                    padding: '6px',
+                    borderRadius: 'var(--radius-xs)',
+                    fontSize: 14,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {themeStore.resolvedTheme === 'dark' ? '☀️' : '🌙'}
+                </button>
+
+                <button
+                  onClick={userStore.openSettings}
+                  title="Open Settings"
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--text-secondary)',
+                    cursor: 'pointer',
+                    padding: '6px',
+                    borderRadius: 'var(--radius-xs)',
+                    fontSize: 14,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  ⚙️
+                </button>
               </div>
             </div>
-          </div>
-
-          {/* Quick Theme Toggle (Sun / Moon) & Settings button */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-            <button
-              onClick={themeStore.toggleTheme}
-              title={`Switch to ${themeStore.resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: 'var(--text-secondary)',
-                cursor: 'pointer',
-                padding: '6px',
-                borderRadius: 'var(--radius-xs)',
-                fontSize: 15,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              {themeStore.resolvedTheme === 'dark' ? '☀️' : '🌙'}
-            </button>
-
-            <button
-              onClick={userStore.openSettings}
-              title="Open Settings"
-              style={{
-                background: 'none',
-                border: 'none',
-                color: 'var(--text-secondary)',
-                cursor: 'pointer',
-                padding: '6px',
-                borderRadius: 'var(--radius-xs)',
-                fontSize: 15,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              ⚙️
-            </button>
-          </div>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <button
+                onClick={() => userStore.openAuthModal('signin')}
+                style={{
+                  flex: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 8,
+                  padding: '8px 12px',
+                  backgroundColor: 'var(--accent-primary)',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: 'var(--radius-sm, 6px)',
+                  fontWeight: 600,
+                  fontSize: 13,
+                  cursor: 'pointer',
+                  transition: 'opacity 0.15s ease',
+                }}
+              >
+                <span>🔑</span>
+                <span>Sign In to DocChat</span>
+              </button>
+              <button
+                onClick={themeStore.toggleTheme}
+                title={`Switch theme`}
+                style={{
+                  background: 'none',
+                  border: '1px solid var(--border-subtle)',
+                  color: 'var(--text-secondary)',
+                  cursor: 'pointer',
+                  padding: '7px 8px',
+                  borderRadius: 'var(--radius-sm, 6px)',
+                  fontSize: 14,
+                }}
+              >
+                {themeStore.resolvedTheme === 'dark' ? '☀️' : '🌙'}
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Delete Confirmation Modal */}
@@ -579,6 +881,9 @@ export function Sidebar() {
         isOpen={docchatStore.isVaultOpen}
         onClose={() => docchatStore.setIsVaultOpen(false)}
       />
+
+      {/* Auth Modal */}
+      <AuthModal />
     </>
   );
 }

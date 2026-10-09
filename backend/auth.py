@@ -375,3 +375,19 @@ def revoke_user_session(token: str) -> None:
             conn.commit()
     except Exception as e:
         logger.error("revoke_user_session error: %s", e)
+
+
+def get_all_users() -> list[Dict[str, Any]]:
+    """Return all registered users safely without passwords for account switching."""
+    init_auth_db()
+    try:
+        with _get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT id, username, email, role, created_at, last_login FROM users ORDER BY id ASC"
+            )
+            return [dict(row) for row in cursor.fetchall()]
+    except Exception as e:
+        logger.error("get_all_users error: %s", e)
+        return []
+

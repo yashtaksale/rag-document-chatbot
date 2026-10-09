@@ -1,15 +1,43 @@
+# Dependencies
 node_modules/
-.next/
-*.tsbuildinfo
 venv/
 __pycache__/
 *.pyc
+
+# Next.js build
+.next/
+*.tsbuildinfo
+out/
+
+# Environment and secrets
 .env
 .env.*
+!.env.example
+
+# Local databases and SQLite
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+data/*.db
+data/users.db
+data/users/
+
+# Chroma & local storage
 chroma_db/
 conversations/
+uploads/
+
+# Model checkpoints & binary files
 *.bin
 *.safetensors
+*.tmp
+*.log
 docchat.log
+backend.log
+frontend.log
+
+# System files
 .DS_Store
-*.tmp
+Thumbs.db
+nul

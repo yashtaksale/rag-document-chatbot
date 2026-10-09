@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ThemeInitializer } from "../components/theme/ThemeInitializer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,23 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const storedTheme = localStorage.getItem('chat_theme');
-                  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  const theme = storedTheme === 'dark' || (!storedTheme && prefersDark) || (storedTheme === 'system' && prefersDark) ? 'dark' : 'light';
-                  document.documentElement.setAttribute('data-theme', theme);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-      </head>
       <body>
+        <ThemeInitializer />
         {children}
       </body>
     </html>

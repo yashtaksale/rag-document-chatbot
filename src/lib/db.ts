@@ -486,13 +486,55 @@ export function getShareSnapshot(id: string): ShareSnapshot | undefined {
 // ── User Settings & Usage Limits ─────────────────────────────────────────────
 
 const DEFAULT_USER: User = {
-  id: 'user-default-1',
-  email: 'developer@example.com',
-  name: 'Dev User',
+  id: '1',
+  email: 'demo@docchat.ai',
+  name: 'Demo User',
+  role: 'member',
   planTier: 'free',
   memoryEnabled: true,
   customInstructions: 'Respond clearly and concisely with well-structured answers.',
+  isAuthenticated: true,
 };
+
+export const GUEST_USER: User = {
+  id: 'guest',
+  email: '',
+  name: 'Guest User',
+  role: 'guest',
+  planTier: 'free',
+  memoryEnabled: false,
+  isAuthenticated: false,
+};
+
+export const DEMO_ACCOUNTS: User[] = [
+  {
+    id: '1',
+    name: 'Demo User',
+    email: 'demo@docchat.ai',
+    role: 'member',
+    planTier: 'free',
+    memoryEnabled: true,
+    isAuthenticated: true,
+  },
+  {
+    id: '4',
+    name: 'Primary Researcher',
+    email: 'researcher@docchat.ai',
+    role: 'user',
+    planTier: 'pro',
+    memoryEnabled: true,
+    isAuthenticated: true,
+  },
+  {
+    id: '2',
+    name: 'Admin',
+    email: 'admin@docchat.ai',
+    role: 'admin',
+    planTier: 'team',
+    memoryEnabled: true,
+    isAuthenticated: true,
+  },
+];
 
 export function getUser(): User {
   return getObject<User>(KEYS.USER, DEFAULT_USER);
@@ -501,6 +543,29 @@ export function getUser(): User {
 export function updateUser(updates: Partial<User>): User {
   const current = getUser();
   const updated = { ...current, ...updates };
+  setObject(KEYS.USER, updated);
+  return updated;
+}
+
+export function signOutUser(): User {
+  const signedOut: User = {
+    ...GUEST_USER,
+    customInstructions: '',
+    token: undefined,
+  };
+  setObject(KEYS.USER, signedOut);
+  return signedOut;
+}
+
+export function signInUser(userData: Partial<User>, token?: string): User {
+  const current = getUser();
+  const updated: User = {
+    ...DEFAULT_USER,
+    ...current,
+    ...userData,
+    token: token !== undefined ? token : userData.token ?? current.token,
+    isAuthenticated: true,
+  };
   setObject(KEYS.USER, updated);
   return updated;
 }

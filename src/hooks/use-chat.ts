@@ -116,11 +116,14 @@ export function useChat() {
       );
 
       let completeOutput = '';
-
+      const userToken = userStore.user?.token;
       try {
         const response = await fetch('/api/chat', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            ...(userToken ? { Authorization: `Bearer ${userToken}` } : {}),
+          },
           body: JSON.stringify({
             messages: prunedMessages,
             model: modelId,

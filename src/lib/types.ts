@@ -149,9 +149,12 @@ export interface User {
   id: string;
   email: string;
   name: string;
+  role?: string;
   planTier: PlanTier;
   memoryEnabled: boolean;
   customInstructions?: string;
+  token?: string;
+  isAuthenticated?: boolean;
 }
 
 export interface UserUsage {

@@ -20,7 +20,17 @@ import { AVAILABLE_MODELS, type PlanTier } from '../../lib/types';
 type SettingsTab = 'general' | 'appearance' | 'memory' | 'instructions' | 'data' | 'usage';
 
 export function SettingsModal() {
-  const { user, usage, isSettingsOpen, closeSettings, updateUser, setPlanTier, resetRateLimit } = useUserStore();
+  const {
+    user,
+    usage,
+    isSettingsOpen,
+    closeSettings,
+    updateUser,
+    setPlanTier,
+    resetRateLimit,
+    signOut,
+    openAuthModal,
+  } = useUserStore();
   const { memories, isEnabled: memoryEnabled, toggleEnabled, remove: removeMemory, add: addMemory, edit: editMemory } = useMemoryStore();
   const themeStore = useThemeStore();
   const convStore = useConversationStore();
@@ -272,6 +282,96 @@ export function SettingsModal() {
                       <span>{t.label}</span>
                     </button>
                   ))}
+                </div>
+              </div>
+
+              {/* Account & Session Actions */}
+              <div
+                style={{
+                  marginTop: 10,
+                  padding: '14px',
+                  backgroundColor: 'var(--bg-secondary)',
+                  borderRadius: 'var(--radius-md, 8px)',
+                  border: '1px solid var(--border-subtle)',
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                  <div>
+                    <div style={{ fontWeight: 600, fontSize: 13.5, color: 'var(--text-primary)' }}>
+                      Account & Active Session
+                    </div>
+                    <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 2 }}>
+                      {user.isAuthenticated
+                        ? `Logged in as ${user.name} (${user.email || 'Demo session'})`
+                        : 'Currently using guest mode'}
+                    </div>
+                  </div>
+                  <span
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      padding: '3px 8px',
+                      borderRadius: '4px',
+                      backgroundColor: user.isAuthenticated ? 'rgba(34, 197, 94, 0.12)' : 'rgba(156, 163, 175, 0.12)',
+                      color: user.isAuthenticated ? '#22c55e' : 'var(--text-tertiary)',
+                      border: user.isAuthenticated ? '1px solid rgba(34, 197, 94, 0.25)' : '1px solid var(--border-subtle)',
+                    }}
+                  >
+                    {user.isAuthenticated ? 'Active' : 'Signed Out'}
+                  </span>
+                </div>
+
+                <div style={{ display: 'flex', gap: 10 }}>
+                  <button
+                    onClick={() => {
+                      closeSettings();
+                      openAuthModal('signin');
+                    }}
+                    style={{
+                      flex: 1,
+                      padding: '8px 12px',
+                      backgroundColor: 'var(--bg-tertiary)',
+                      color: 'var(--text-primary)',
+                      border: '1px solid var(--border-subtle)',
+                      borderRadius: 'var(--radius-sm, 6px)',
+                      cursor: 'pointer',
+                      fontSize: 12.5,
+                      fontWeight: 600,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 6,
+                    }}
+                  >
+                    <span>👥</span>
+                    <span>Switch Account</span>
+                  </button>
+
+                  <button
+                    onClick={async () => {
+                      closeSettings();
+                      await signOut();
+                    }}
+                    style={{
+                      flex: 1,
+                      padding: '8px 12px',
+                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                      color: '#ef4444',
+                      border: '1px solid rgba(239, 68, 68, 0.25)',
+                      borderRadius: 'var(--radius-sm, 6px)',
+                      cursor: 'pointer',
+                      fontSize: 12.5,
+                      fontWeight: 600,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 6,
+                    }}
+                  >
+                    <span>🚪</span>
+                    <span>Sign Out</span>
+                  </button>
                 </div>
               </div>
             </div>

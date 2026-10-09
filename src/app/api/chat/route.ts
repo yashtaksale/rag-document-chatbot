@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
 
     // ── 0. Route through DocChat Python RAG Backend if Available ─────────────
     const ragMode = body.ragMode || 'Thinking';
-    const userId = body.userId || 1;
+    const userId = body.userId !== undefined && body.userId !== null ? Number(body.userId) : 1;
     const useDocChat = body.useDocChat !== false;
 
     if (useDocChat) {
@@ -62,18 +62,33 @@ export async function POST(req: NextRequest) {
 
       try {
         const backendEndpoint = process.env.DOCCHAT_BACKEND_URL || 'http://127.0.0.1:8001/api/chat/stream';
+        const backendHeaders: Record<string, string> = { 'Content-Type': 'application/json' };
+        const authHeader = req.headers.get('authorization');
+        if (authHeader) {
+          backendHeaders['Authorization'] = authHeader;
+        }
+
         const docchatRes = await fetch(backendEndpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: backendHeaders,
           body: JSON.stringify({
             question,
-            user_id: userId,
+            user_id: isNaN(userId) ? 1 : userId,
             mode: ragMode,
             messages: messages?.map((m: any) => ({ role: m.role, content: m.content })),
           }),
         });
 
-        if (docchatRes.ok && docchatRes.body) {
+        if (!docchatRes.ok) {
+          const errData = await docchatRes.json().catch(() => ({ detail: `Backend returned HTTP ${docchatRes.status}` }));
+          console.error('DocChat backend error:', docchatRes.status, errData);
+          return new Response(
+            JSON.stringify({ error: errData.detail || `DocChat backend error (${docchatRes.status})` }),
+            { status: docchatRes.status, headers: { 'Content-Type': 'application/json' } }
+          );
+        }
+
+        if (docchatRes.body) {
           const reader = docchatRes.body.getReader();
           const decoder = new TextDecoder();
           const encoder = new TextEncoder();
@@ -137,8 +152,12 @@ export async function POST(req: NextRequest) {
             },
           });
         }
-      } catch (backendErr) {
-        console.warn('DocChat backend unreachable on port 8001, falling back to direct cloud LLM:', backendErr);
+      } catch (backendErr: any) {
+        console.error('DocChat backend unreachable on port 8001:', backendErr);
+        return new Response(
+          JSON.stringify({ error: `DocChat backend service is unreachable (${backendErr.message}). Please ensure Python backend is running.` }),
+          { status: 503, headers: { 'Content-Type': 'application/json' } }
+        );
       }
     }
 

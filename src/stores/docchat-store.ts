@@ -25,7 +25,18 @@ export interface DocChatState {
   setIsVaultOpen: (open: boolean) => void;
 }
 
+import * as db from '../lib/db';
+
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001';
+
+function getAuthHeaders(extraHeaders: Record<string, string> = {}): Record<string, string> {
+  const token = db.getUser()?.token;
+  const headers: Record<string, string> = { ...extraHeaders };
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+  return headers;
+}
 
 export const useDocChatStore = create<DocChatState>((set, get) => ({
   documents: [],
@@ -42,7 +53,9 @@ export const useDocChatStore = create<DocChatState>((set, get) => ({
   fetchVault: async () => {
     set({ isLoading: true, error: null });
     try {
-      const res = await fetch(`${API_BASE}/api/health?user_id=${get().activeUserId}`);
+      const res = await fetch(`${API_BASE}/api/health?user_id=${get().activeUserId}`, {
+        headers: getAuthHeaders(),
+      });
       if (!res.ok) throw new Error('DocChat backend unreachable');
       const data = await res.json();
       set({
@@ -66,6 +79,7 @@ export const useDocChatStore = create<DocChatState>((set, get) => ({
       set({ uploadProgress: `Extracting text & generating vector embeddings...` });
       const res = await fetch(`${API_BASE}/api/documents/upload?user_id=${get().activeUserId}`, {
         method: 'POST',
+        headers: getAuthHeaders(),
         body: formData,
       });
 
@@ -89,6 +103,7 @@ export const useDocChatStore = create<DocChatState>((set, get) => ({
     try {
       const res = await fetch(`${API_BASE}/api/documents/${encodeURIComponent(filename)}?user_id=${get().activeUserId}`, {
         method: 'DELETE',
+        headers: getAuthHeaders(),
       });
       if (!res.ok) throw new Error('Failed to delete document');
       await get().fetchVault();
@@ -104,6 +119,7 @@ export const useDocChatStore = create<DocChatState>((set, get) => ({
     try {
       const res = await fetch(`${API_BASE}/api/documents/clear?user_id=${get().activeUserId}`, {
         method: 'POST',
+        headers: getAuthHeaders(),
       });
       if (!res.ok) throw new Error('Failed to clear vault');
       await get().fetchVault();

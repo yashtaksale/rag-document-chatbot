@@ -25,7 +25,9 @@ def passes_gate(results: dict, threshold: float = SIMILARITY_THRESHOLD) -> tuple
         return False, 0.0
 
     min_distance = min(distances[0])
-    cosine_sim = 1.0 - (min_distance**2) / 2.0
-    cosine_sim = max(0.0, cosine_sim)  # clamp — numerical noise can dip below 0
+    # ChromaDB returns squared L2 distance (D = ||u - v||^2).
+    # For normalized unit embeddings: D = 2 - 2*cos(theta) => cos(theta) = 1.0 - D / 2.0
+    cosine_sim = 1.0 - (min_distance / 2.0)
+    cosine_sim = max(0.0, min(1.0, cosine_sim))  # clamp between 0.0 and 1.0
 
     return cosine_sim >= threshold, cosine_sim

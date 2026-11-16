@@ -619,6 +619,7 @@ export function ChatArea() {
 
               {/* Serif Greeting */}
               <h1
+                suppressHydrationWarning
                 style={{
                   fontFamily: 'var(--font-serif)',
                   fontSize: 32,

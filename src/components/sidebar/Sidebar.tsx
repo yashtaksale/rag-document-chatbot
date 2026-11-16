@@ -424,11 +424,31 @@ export function Sidebar() {
             padding: '10px 14px',
             position: 'relative',
             backgroundColor: 'var(--bg-secondary)',
+            minHeight: 57,
           }}
           suppressHydrationWarning
         >
-          {/* User Popover Menu */}
-          {isUserMenuOpen && (
+          {!isMounted ? (
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 36 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: 'var(--radius-full)',
+                    backgroundColor: 'var(--bg-tertiary)',
+                  }}
+                />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  <div style={{ width: 70, height: 12, backgroundColor: 'var(--bg-tertiary)', borderRadius: 4 }} />
+                  <div style={{ width: 45, height: 10, backgroundColor: 'var(--bg-tertiary)', borderRadius: 3 }} />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <>
+              {/* User Popover Menu */}
+              {isUserMenuOpen && (
             <div
               ref={userMenuRef}
               style={{
@@ -798,6 +818,8 @@ export function Sidebar() {
                 {themeStore.resolvedTheme === 'dark' ? '☀️' : '🌙'}
               </button>
             </div>
+          )}
+            </>
           )}
         </div>
 
